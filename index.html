@@ -25,7 +25,8 @@
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="stylesheet" href="2ichanges.css">
-    <!-- <link rel="stylesheet" href="photo.css" /> -->
+    <link rel="stylesheet" href="photo.css" />
+    <script src="role.js"></script>
   <script>
     // Entrance choreography gate: hide the cutouts + secondary UI before
     // first paint so the page opens empty (icon + name only). Skipped on
@@ -1876,6 +1877,252 @@
 
 
 
+
+
+
+            <!-- ============ THE REEL ============ -->
+    <section class="ir-sec" id="roles">
+      <div class="ir-sec-head reveal">
+        <div>
+          <p class="ir-label"><i></i>The backbone</p>
+          <h2 data-split>Key Roles in IT Infrastructure</h2>
+        </div>
+        <p>Six jobs that between them own every layer &mdash; from the cabling on the
+          data centre floor to the account that lets someone log in on Monday. Scroll,
+          and the console follows along.</p>
+      </div>
+
+      <div class="ir-reel">
+
+        <!-- Sticky machine. Every screen is drawn in HTML and CSS, so it
+             animates, scales and stays legible without a single screenshot. -->
+        <div class="ir-reel-sticky">
+          <div class="ir-machine">
+            <div class="ir-laptop" id="laptop" data-view="1" role="img"
+                 aria-label="A workstation cycling through the console each infrastructure role works in">
+              <div class="ir-lid">
+                <div class="ir-screen">
+                  <div class="ir-chrome">
+                    <span class="ir-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span class="ir-chrome-title" id="chrome-title">core-01 &mdash; systemctl</span>
+                    <span class="ir-chrome-badge">LIVE</span>
+                  </div>
+
+                  <div class="ir-views">
+
+                    <!-- 01 System Administrator -->
+                    <div class="ir-view" data-view="1">
+                      <div class="ir-term">
+                        <p><span class="dim">admin@core-01</span> ~ % <span class="cmd">systemctl status --fleet</span></p>
+                        <p class="ok">core-01.api      active (running)   42d</p>
+                        <p class="ok">core-02.api      active (running)   42d</p>
+                        <p class="ok">core-03.worker   active (running)   17d</p>
+                        <p class="warn">core-04.worker   reloading&hellip;      0s</p>
+                        <p class="ok">core-05.cache    active (running)   63d</p>
+                        <p><span class="dim">admin@core-01</span> ~ % <span class="caret" aria-hidden="true"></span></p>
+                      </div>
+                      <div class="ir-side">
+                        <div class="ir-meter"><span>CPU</span><i style="--v:38%"></i><b>38%</b></div>
+                        <div class="ir-meter"><span>MEM</span><i style="--v:61%"></i><b>61%</b></div>
+                        <div class="ir-meter"><span>DISK</span><i style="--v:24%"></i><b>24%</b></div>
+                        <div class="ir-kpi"><b>99.98%</b><span>uptime &middot; 90 days</span></div>
+                      </div>
+                    </div>
+
+                    <!-- 02 Network Administrator -->
+                    <div class="ir-view" data-view="2">
+                      <div class="ir-net">
+                        <svg viewBox="0 0 300 168" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                          <g class="net-links">
+                            <path d="M40 84 H96" /><path d="M136 84 H176" />
+                            <path d="M216 84 C 240 84, 240 34, 256 34" />
+                            <path d="M216 84 H256" />
+                            <path d="M216 84 C 240 84, 240 134, 256 134" />
+                          </g>
+                          <g class="net-flow">
+                            <path d="M40 84 H96" /><path d="M136 84 H176" />
+                            <path d="M216 84 C 240 84, 240 34, 256 34" />
+                            <path d="M216 84 H256" />
+                            <path d="M216 84 C 240 84, 240 134, 256 134" />
+                          </g>
+                          <g class="net-nodes">
+                            <rect x="8" y="68" width="34" height="32" rx="8" class="n-wan" />
+                            <rect x="96" y="66" width="40" height="36" rx="9" class="n-fw" />
+                            <rect x="176" y="66" width="40" height="36" rx="9" class="n-core" />
+                            <rect x="256" y="20" width="36" height="28" rx="8" />
+                            <rect x="256" y="70" width="36" height="28" rx="8" />
+                            <rect x="256" y="120" width="36" height="28" rx="8" />
+                          </g>
+                          <g class="net-text">
+                            <text x="25" y="88">WAN</text>
+                            <text x="116" y="88">FW</text>
+                            <text x="196" y="88">CORE</text>
+                            <text x="274" y="38">SW-A</text>
+                            <text x="274" y="88">SW-B</text>
+                            <text x="274" y="138">WLAN</text>
+                          </g>
+                        </svg>
+                      </div>
+                      <div class="ir-side">
+                        <div class="ir-kpi"><b>1.8 Gb/s</b><span>egress, 5-min avg</span></div>
+                        <div class="ir-spark" aria-hidden="true">
+                          <i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:44%"></i>
+                          <i style="--h:71%"></i><i style="--h:58%"></i><i style="--h:83%"></i>
+                          <i style="--h:64%"></i><i style="--h:49%"></i>
+                        </div>
+                        <div class="ir-chiprow"><span class="ok">0 drops</span><span>12 ms RTT</span></div>
+                      </div>
+                    </div>
+
+                    <!-- 03 Database Administrator -->
+                    <div class="ir-view" data-view="3">
+                      <div class="ir-db">
+                        <p class="ir-sql"><span class="kw">SELECT</span> o.id, c.name, <span class="fn">SUM</span>(l.qty)
+                          <span class="kw">FROM</span> orders o <span class="kw">JOIN</span> lines l <span class="kw">USING</span> (order_id)</p>
+                        <div class="ir-table" role="presentation">
+                          <div class="tr th"><span>TABLE</span><span>ROWS</span><span>INDEX HIT</span></div>
+                          <div class="tr"><span>orders</span><span>4.2 M</span><span class="ok">99.4%</span></div>
+                          <div class="tr"><span>lines</span><span>18.7 M</span><span class="ok">98.9%</span></div>
+                          <div class="tr"><span>customers</span><span>612 K</span><span class="ok">99.8%</span></div>
+                          <div class="tr"><span>audit_log</span><span>96.1 M</span><span class="warn">91.2%</span></div>
+                        </div>
+                      </div>
+                      <div class="ir-side">
+                        <div class="ir-kpi"><b>0.4 s</b><span>replication lag</span></div>
+                        <div class="ir-meter"><span>P95</span><i style="--v:22%"></i><b>41 ms</b></div>
+                        <div class="ir-chiprow"><span class="ok">Backup 06:00 &check;</span></div>
+                      </div>
+                    </div>
+
+                    <!-- 04 IT Support Specialist -->
+                    <div class="ir-view" data-view="4">
+                      <div class="ir-queue">
+                        <div class="q-row"><span class="p p1">P1</span><span class="q-t">Laptop will not boot after update</span><span class="q-m">3 m</span></div>
+                        <div class="q-row"><span class="p p2">P2</span><span class="q-t">VPN drops on the 4th floor</span><span class="q-m">12 m</span></div>
+                        <div class="q-row"><span class="p p2">P2</span><span class="q-t">Shared drive permissions</span><span class="q-m">26 m</span></div>
+                        <div class="q-row"><span class="p p3">P3</span><span class="q-t">New starter kit &mdash; Tuesday</span><span class="q-m">2 h</span></div>
+                        <div class="q-row done"><span class="p ok">&check;</span><span class="q-t">Password reset &mdash; resolved</span><span class="q-m">1 m</span></div>
+                      </div>
+                      <div class="ir-side">
+                        <div class="ir-kpi"><b>15 min</b><span>first response, P1</span></div>
+                        <div class="ir-meter"><span>SLA</span><i style="--v:94%"></i><b>94%</b></div>
+                        <div class="ir-chiprow"><span>4 open</span><span class="ok">31 closed</span></div>
+                      </div>
+                    </div>
+
+                    <!-- 05 Security Analyst -->
+                    <div class="ir-view" data-view="5">
+                      <div class="ir-guard">
+                        <div class="ir-radar" aria-hidden="true"><i></i><i></i><span class="sweep"></span></div>
+                        <div class="ir-alerts">
+                          <div class="a-row"><span class="sev hi">HIGH</span><span class="a-t">Brute force &mdash; 203.0.113.44</span><span class="ok">blocked</span></div>
+                          <div class="a-row"><span class="sev md">MED</span><span class="a-t">Stale admin token</span><span class="ok">rotated</span></div>
+                          <div class="a-row"><span class="sev lo">LOW</span><span class="a-t">TLS 1.1 endpoint</span><span>patched</span></div>
+                        </div>
+                      </div>
+                      <div class="ir-side">
+                        <div class="ir-kpi"><b>1,284</b><span>threats blocked today</span></div>
+                        <div class="ir-meter"><span>Hardening</span><i style="--v:88%"></i><b>88%</b></div>
+                        <div class="ir-chiprow"><span class="ok">0 open criticals</span></div>
+                      </div>
+                    </div>
+
+                    <!-- 06 Data Center Technician -->
+                    <div class="ir-view" data-view="6">
+                      <div class="ir-racks" aria-hidden="true">
+                        <div class="rack"><span class="rack-id">R-01</span><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i></div>
+                        <div class="rack"><span class="rack-id">R-02</span><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+                        <div class="rack"><span class="rack-id">R-03</span><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+                      </div>
+                      <div class="ir-side">
+                        <div class="ir-kpi"><b>21.4 &deg;C</b><span>cold aisle inlet</span></div>
+                        <div class="ir-meter"><span>Power</span><i style="--v:67%"></i><b>6.7 kW</b></div>
+                        <div class="ir-chiprow"><span class="ok">A+B feed OK</span><span>3 racks</span></div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="ir-base" aria-hidden="true"><span></span></div>
+            </div>
+
+            <!-- Progress + manual control, for anyone who would rather click. -->
+            <div class="ir-reel-rail">
+              <button class="ir-rail-btn" type="button" id="rail-prev" aria-label="Previous role">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+              </button>
+              <ol class="ir-rail-dots" id="rail-dots"></ol>
+              <button class="ir-rail-btn" type="button" id="rail-next" aria-label="Next role">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <ol class="ir-steps">
+          <li class="ir-step" id="role-1" data-view="1">
+            <span class="ir-step-no">01</span>
+            <h3>System Administrator</h3>
+            <p class="ir-step-def">Maintains servers, systems, and access for stability and performance.</p>
+            <p>Owns the machines everything else runs on &mdash; provisioning, patching,
+              monitoring and access control. When a box has to stay up through a release,
+              a migration, or a bad Tuesday, this is the person keeping it there.</p>
+            <ul class="ir-chips"><li>Provisioning</li><li>Patching</li><li>Access control</li><li>Monitoring</li></ul>
+          </li>
+
+          <li class="ir-step" id="role-2" data-view="2">
+            <span class="ir-step-no">02</span>
+            <h3>Network Administrator</h3>
+            <p class="ir-step-def">Manages network setup, security, and continuous connectivity.</p>
+            <p>Designs and runs the paths between everything: switching, routing, firewalls,
+              VPNs, and the wireless nobody thinks about until it drops. The whole job is
+              measured in the minutes nobody noticed.</p>
+            <ul class="ir-chips"><li>Routing</li><li>Switching</li><li>Firewalls</li><li>VPN</li></ul>
+          </li>
+
+          <li class="ir-step" id="role-3" data-view="3">
+            <span class="ir-step-no">03</span>
+            <h3>Database Administrator</h3>
+            <p class="ir-step-def">Manages database design, tuning, backup, and security.</p>
+            <p>Looks after the data itself &mdash; schema design, index and query tuning,
+              replication, and the backups that only matter on the one day they are needed.
+              Also the person who can tell you why that report got slow.</p>
+            <ul class="ir-chips"><li>Schema design</li><li>Tuning</li><li>Replication</li><li>Backups</li></ul>
+          </li>
+
+          <li class="ir-step" id="role-4" data-view="4">
+            <span class="ir-step-no">04</span>
+            <h3>IT Support Specialist</h3>
+            <p class="ir-step-def">Supports users by resolving hardware, software, connectivity issues.</p>
+            <p>First line for everyone else in the building: hardware, software, accounts
+              and connectivity, triaged and resolved. Most of an organisation's experience
+              of IT is this role, which is why response time is the number that counts.</p>
+            <ul class="ir-chips"><li>Triage</li><li>Hardware</li><li>Onboarding</li><li>SLAs</li></ul>
+          </li>
+
+          <li class="ir-step" id="role-5" data-view="5">
+            <span class="ir-step-no">05</span>
+            <h3>Security Analyst</h3>
+            <p class="ir-step-def">Implements cybersecurity to protect systems from threats.</p>
+            <p>Watches for what should not be happening and closes the gap before it does:
+              monitoring, hardening, incident response, and the audits that keep it honest.
+              Prevention is invisible work &mdash; this role is how it gets measured.</p>
+            <ul class="ir-chips"><li>Monitoring</li><li>Hardening</li><li>Incident response</li><li>Audits</li></ul>
+          </li>
+
+          <li class="ir-step" id="role-6" data-view="6">
+            <span class="ir-step-no">06</span>
+            <h3>Data Center Technician</h3>
+            <p class="ir-step-def">Maintains hardware, power, and cabling in data centers.</p>
+            <p>Hands on the physical layer: racking and stacking, structured cabling, power
+              distribution, cooling, and the swap-outs that happen at three in the morning.
+              Every abstraction above depends on this floor staying tidy.</p>
+            <ul class="ir-chips"><li>Racking</li><li>Cabling</li><li>Power</li><li>Cooling</li></ul>
+          </li>
+        </ol>
+      </div>
+    </section>
 
 
 
