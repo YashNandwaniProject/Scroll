@@ -1,0 +1,1428 @@
+/* ===========================================================================
+   2iresourcing — Key Roles in IT Infrastructure
+
+   Everything in this file is scoped to #roles, so it cannot reach any other
+   section on the page. The palette, type ramp and container width are taken
+   straight from the site tokens in 2ichanges.css:
+
+     --light-bg      #f2f1ef      section ground
+     --title-color   #111212      headings
+     --paragraph-color #52504c    body copy
+     --primary-color #FFA004      accent
+     --dark          #1c1e1e      the machine
+     Schibsted Grotesk / Archivo / IBM Plex Mono
+
+   Paired with role.js. Without JS the section still renders complete — the
+   :not(.ir-ready) block at the foot of the file is the no-JS fallback.
+   =========================================================================== */
+
+img,
+svg {
+  max-width: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+/* ===========================================================================
+   SECTION SHELL + TOKENS
+   =========================================================================== */
+
+#roles {
+  /* ground */
+  --paper: #f2f1ef;
+  --paper-2: #e8e7e5;
+  --card: #ffffff;
+
+  /* ink */
+  --ink: #111212;
+  --text: #1c1e1e;
+  --muted: #52504c;
+  --faint: #8b8985;
+
+  /* hairlines */
+  --line: rgba(17, 18, 18, 0.11);
+  --line-2: rgba(17, 18, 18, 0.06);
+  --line-dark: rgba(255, 255, 255, 0.1);
+
+  /* on the dark screen */
+  --on-dark: #f4f4f6;
+  --on-dark-muted: rgba(244, 244, 246, 0.68);
+  --on-dark-faint: rgba(244, 244, 246, 0.44);
+
+  /* accent — the site orange, plus a mint for healthy states */
+  --brand: #ffa004;
+  --brand-2: #fa8c16;
+  --brand-soft: rgba(255, 160, 4, 0.14);
+  --brand-ring: rgba(255, 160, 4, 0.28);
+  --mint: #5cc9a0;
+  --mint-2: #7fd9b8;
+  --amber: #f2bd50;
+  --coral: #f0736a;
+
+  /* metrics */
+  --shell: 1410px;
+  --pad: 15px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+
+  /* motion */
+  --ease: cubic-bezier(0.22, 0.9, 0.24, 1);
+  --spring: cubic-bezier(0.34, 1.36, 0.5, 1);
+
+  position: relative;
+  isolation: isolate;
+  background: var(--paper);
+  padding: clamp(72px, 9vw, 130px) 0 clamp(56px, 7vw, 110px);
+  font-family: Archivo, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 16px;
+  /* The site sets body { line-height: 20px } — an absolute value, which the
+     console inherits and cannot scale from. Everything below sizes itself
+     against the screen's own width, so the leading has to be unitless. */
+  line-height: 1.6;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  scroll-margin-top: 40px;
+}
+
+/* A very soft warm wash top and bottom so the band does not butt hard against
+   whatever sits either side of it. */
+#roles::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+      120% 60% at 50% 0%,
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0) 60%
+    ),
+    radial-gradient(
+      90% 50% at 50% 100%,
+      rgba(232, 231, 229, 0.7),
+      rgba(232, 231, 229, 0) 70%
+    );
+}
+
+#roles ::selection {
+  background: var(--brand-soft);
+  color: var(--ink);
+}
+
+#roles :focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+#roles * {
+  box-sizing: border-box;
+}
+
+/* The site sets bare `p`, `h2`, `h3`, `ul/ol` and `button` globally
+   (2ichanges.css:467/3494, pixel.css:1982/2037). Those element rules would
+   otherwise beat every class in this file — a 16px paragraph inside a 10px
+   console, an uppercase role title. Neutralise them once, at #roles
+   specificity, and let the rules below do the styling. Everything that
+   actually needs a value is set on a class, which outranks this block. */
+#roles h2,
+#roles h3,
+#roles p,
+#roles ol,
+#roles ul,
+#roles li,
+#roles span,
+#roles b,
+#roles i,
+#roles button {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* The section itself is full-bleed so the warm band runs edge to edge; its
+   two direct children carry the site container instead (1410px / 15px, the
+   same as .container in 2ichanges.css). */
+#roles > .ir-sec-head,
+#roles > .ir-reel {
+  max-width: var(--shell);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--pad);
+  padding-right: var(--pad);
+}
+
+/* ===========================================================================
+   SECTION HEAD
+   =========================================================================== */
+
+#roles .ir-sec-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: clamp(18px, 4vw, 60px);
+  align-items: end;
+  padding-bottom: clamp(26px, 3.2vw, 44px);
+  border-bottom: 1px solid var(--line);
+}
+
+/* The capsule label — a live dot, then IBM Plex Mono small caps, exactly the
+   treatment the rest of the site uses for its subtitles. */
+#roles .ir-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 20px;
+  padding: 8px 16px 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+#roles .ir-label i {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 3px var(--brand-ring);
+  animation: ir-pulse 2.8s ease-in-out infinite;
+}
+@keyframes ir-pulse {
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 160, 4, 0.04);
+  }
+}
+
+#roles .ir-sec-head h2 {
+  margin: 0;
+  max-width: 15ch;
+  font-family: "Schibsted Grotesk", Archivo, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: clamp(32px, 4.4vw, 54px);
+  line-height: 1.06;
+  font-weight: 500;
+  letter-spacing: -0.038em;
+  text-transform: none;
+  color: var(--ink);
+}
+
+#roles .ir-sec-head > div > p,
+#roles .ir-sec-head > p {
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.62;
+  letter-spacing: -0.01em;
+  color: var(--muted);
+  max-width: 44ch;
+}
+
+/* Word-by-word rise on the display heading. role.js wraps each word in
+   .w and sets --w to its index; without it the heading simply renders. */
+#roles [data-split] .w {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.42em);
+  will-change: transform, opacity;
+}
+#roles .reveal.in [data-split] .w,
+#roles [data-split].in .w {
+  animation: ir-word 0.78s var(--ease) forwards;
+  animation-delay: calc(var(--w, 0) * 44ms);
+}
+@keyframes ir-word {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 860px) {
+  #roles .ir-sec-head {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+  }
+  #roles .ir-sec-head h2 {
+    max-width: 18ch;
+  }
+}
+
+/* ===========================================================================
+   THE REEL — sticky console + six roles
+   =========================================================================== */
+
+#roles .ir-reel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 80px);
+  align-items: start;
+  margin-top: clamp(8px, 2vw, 24px);
+  /* Room for the spine that runs down the left of the roles column. */
+  --spine: 22px;
+  /* One role's worth of scroll. Shared with .ir-steps below so the sticky
+     run and the roles that drive it can never disagree. */
+  --step-h: min(80vh, 640px);
+}
+
+/* Full-height sticky column: the machine parks dead centre of the viewport
+   and the roles scroll past it. */
+#roles .ir-reel-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  z-index: 2;
+}
+
+#roles .ir-machine {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+}
+
+/* Ambient warm glow behind the machine. */
+#roles .ir-machine::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 116%;
+  aspect-ratio: 1 / 0.86;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    closest-side,
+    rgba(255, 160, 4, 0.13),
+    rgba(255, 160, 4, 0) 72%
+  );
+}
+
+/* The desk shadow. Sits under the base, not the lid, so the machine reads as
+   standing on something. */
+#roles .ir-machine::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  width: 72%;
+  height: 34px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgba(16, 16, 19, 0.24),
+    rgba(16, 16, 19, 0)
+  );
+  pointer-events: none;
+}
+
+/* ---------- the laptop ---------- */
+
+#roles .ir-laptop {
+  position: relative;
+  width: 100%;
+}
+
+#roles .ir-lid {
+  position: relative;
+  aspect-ratio: 16 / 10.2;
+  padding: 11px 11px 13px;
+  border-radius: 18px 18px 8px 8px;
+  background: linear-gradient(168deg, #3c3c42, #24262a 42%, #131417);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    0 34px 64px -30px rgba(16, 16, 19, 0.55),
+    0 8px 18px -12px rgba(16, 16, 19, 0.4);
+}
+
+/* The camera pinhole above the screen. */
+#roles .ir-lid::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: #33343c;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+#roles .ir-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0b0b0f;
+  display: flex;
+  flex-direction: column;
+  /* Everything on the screen is sized from the screen's own width, so the
+     console stays in proportion at any breakpoint instead of being tied to
+     the viewport. */
+  container-type: inline-size;
+  font-size: 11px;
+}
+
+/* A faint sheen across the glass. */
+#roles .ir-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  background: linear-gradient(
+    122deg,
+    rgba(255, 255, 255, 0.065) 0%,
+    rgba(255, 255, 255, 0) 36%
+  );
+}
+
+/* ---------- window chrome ---------- */
+
+#roles .ir-chrome {
+  position: relative;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 3cqi;
+  padding: 2.1cqi 2.6cqi;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  font-size: clamp(6.5px, 2cqi, 11px);
+  z-index: 3;
+}
+
+/* Scroll progress through the six roles, drawn as a hairline along the
+   bottom edge of the chrome. role.js sets --p on .ir-machine. */
+#roles .ir-chrome::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 1.5px;
+  width: var(--p, 0%);
+  background: linear-gradient(90deg, var(--brand-2), var(--brand));
+  box-shadow: 0 0 10px rgba(255, 160, 4, 0.55);
+  transition: width 0.22s linear;
+}
+
+#roles .ir-dots {
+  display: inline-flex;
+  gap: 1.1cqi;
+  flex: none;
+}
+#roles .ir-dots i {
+  width: 1.7cqi;
+  height: 1.7cqi;
+  min-width: 5px;
+  min-height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+}
+#roles .ir-dots i:first-child {
+  background: var(--coral);
+}
+#roles .ir-dots i:nth-child(2) {
+  background: var(--amber);
+}
+#roles .ir-dots i:nth-child(3) {
+  background: var(--mint);
+}
+
+#roles .ir-chrome-title {
+  flex: 1;
+  min-width: 0;
+  color: var(--on-dark-muted);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.28s var(--ease);
+}
+#roles .ir-chrome-title.swap {
+  opacity: 0;
+}
+
+#roles .ir-chrome-badge {
+  flex: none;
+  padding: 0.6cqi 1.7cqi;
+  border-radius: 999px;
+  background: rgba(92, 201, 160, 0.16);
+  color: var(--mint-2);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  font-size: clamp(5.5px, 1.6cqi, 9px);
+}
+
+/* ---------- the six screens ---------- */
+
+#roles .ir-views {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+/* One layer per role. Only the active one is visible; the rest sit behind it
+   fully laid out, so switching costs nothing. */
+#roles .ir-view {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 32%;
+  gap: 4cqi;
+  padding: 3.2cqi;
+  opacity: 0;
+  transform: translateY(2.4cqi) scale(0.985);
+  pointer-events: none;
+  transition: opacity 0.42s var(--ease), transform 0.6s var(--ease);
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  font-size: clamp(6.5px, 2.1cqi, 12px);
+  line-height: 1.5;
+  color: var(--on-dark);
+}
+#roles .ir-view.on {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+/* The outgoing screen leaves the other way, so a backwards scroll reads as
+   backwards rather than as a second forward step. */
+#roles .ir-view.out {
+  transform: translateY(-2.4cqi) scale(0.985);
+}
+
+/* --- the right-hand gauge column, shared by every view --- */
+
+#roles .ir-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2cqi;
+  min-width: 0;
+}
+
+#roles .ir-meter {
+  display: grid;
+  /* The label track has to be allowed to shrink: a long pair like
+     "Power … 6.7 kW" would otherwise push the value past the screen edge. */
+  grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.4cqi;
+  font-size: clamp(5.5px, 1.75cqi, 10px);
+  color: var(--on-dark-faint);
+}
+#roles .ir-meter > span:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#roles .ir-meter i {
+  display: block;
+  height: 1.3cqi;
+  min-height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+#roles .ir-meter i::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brand-2), var(--brand));
+  transition: width 0.95s var(--ease) 0.18s;
+}
+#roles .ir-view.on .ir-meter i::after {
+  width: var(--v);
+}
+#roles .ir-meter b {
+  color: var(--on-dark);
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+#roles .ir-kpi {
+  padding: 2.4cqi;
+  border: 1px solid var(--line-dark);
+  border-radius: 2.6cqi;
+  background: rgba(255, 255, 255, 0.045);
+}
+#roles .ir-kpi b {
+  display: block;
+  font-family: "Schibsted Grotesk", Archivo, sans-serif;
+  font-size: clamp(11px, 3.6cqi, 22px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+#roles .ir-kpi span {
+  display: block;
+  margin-top: 0.7cqi;
+  font-size: clamp(5.5px, 1.7cqi, 10px);
+  color: var(--on-dark-faint);
+}
+
+#roles .ir-chiprow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2cqi;
+  font-size: clamp(5px, 1.6cqi, 9px);
+}
+#roles .ir-chiprow span {
+  padding: 0.8cqi 1.6cqi;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--on-dark-muted);
+}
+#roles .ir-chiprow span.ok {
+  background: rgba(92, 201, 160, 0.16);
+  color: var(--mint-2);
+}
+
+/* --- 01 system administrator: terminal --- */
+
+#roles .ir-term {
+  font-size: clamp(6px, 1.98cqi, 11.5px);
+  line-height: 1.9;
+  color: #d5d5de;
+  overflow: hidden;
+}
+/* The runs of spaces that align the fleet columns have to survive, so `pre`
+   goes on the lines themselves. Putting it on the container instead would
+   also preserve the newline and indent sitting between each </p> and the
+   next <p> in the source, and the terminal would render double-spaced. */
+#roles .ir-term p {
+  white-space: pre;
+}
+#roles .ir-term .dim {
+  color: #75757f;
+}
+#roles .ir-term .cmd {
+  color: var(--brand);
+}
+#roles .ir-term .ok {
+  color: var(--mint-2);
+}
+#roles .ir-term .warn {
+  color: var(--amber);
+}
+#roles .ir-term .caret {
+  display: inline-block;
+  width: 1ch;
+  height: 1em;
+  vertical-align: -0.15em;
+  background: var(--brand);
+  animation: ir-caret 1.05s steps(1) infinite;
+}
+@keyframes ir-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Lines type in one after another when the view takes over. */
+#roles .ir-view.on .ir-term p {
+  animation: ir-line 0.36s var(--ease) backwards;
+}
+#roles .ir-view.on .ir-term p:nth-child(1) { animation-delay: 0.05s; }
+#roles .ir-view.on .ir-term p:nth-child(2) { animation-delay: 0.14s; }
+#roles .ir-view.on .ir-term p:nth-child(3) { animation-delay: 0.23s; }
+#roles .ir-view.on .ir-term p:nth-child(4) { animation-delay: 0.32s; }
+#roles .ir-view.on .ir-term p:nth-child(5) { animation-delay: 0.41s; }
+#roles .ir-view.on .ir-term p:nth-child(6) { animation-delay: 0.5s; }
+#roles .ir-view.on .ir-term p:nth-child(7) { animation-delay: 0.59s; }
+@keyframes ir-line {
+  from {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+}
+
+/* --- 02 network administrator: topology --- */
+
+#roles .ir-net {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+#roles .ir-net svg {
+  width: 100%;
+  height: 100%;
+}
+#roles .net-links path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-width: 1.4;
+}
+/* A short dash chased along each link — cheap, universally supported, and it
+   reads as traffic without needing offset-path. */
+#roles .net-flow path {
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 5 78;
+  stroke-dashoffset: 83;
+}
+#roles .ir-view.on .net-flow path {
+  animation: ir-packet 2.4s linear infinite;
+}
+#roles .ir-view.on .net-flow path:nth-child(2) { animation-delay: 0.3s; }
+#roles .ir-view.on .net-flow path:nth-child(3) { animation-delay: 0.65s; }
+#roles .ir-view.on .net-flow path:nth-child(4) { animation-delay: 0.85s; }
+#roles .ir-view.on .net-flow path:nth-child(5) { animation-delay: 1.05s; }
+@keyframes ir-packet {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#roles .net-nodes rect {
+  fill: rgba(255, 255, 255, 0.06);
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 1;
+}
+#roles .net-nodes .n-core {
+  fill: rgba(255, 160, 4, 0.18);
+  stroke: var(--brand);
+}
+#roles .net-nodes .n-fw {
+  fill: rgba(92, 201, 160, 0.14);
+  stroke: rgba(92, 201, 160, 0.55);
+}
+#roles .net-text text {
+  fill: rgba(244, 244, 246, 0.72);
+  font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  font-size: 7.5px;
+  font-weight: 500;
+  text-anchor: middle;
+}
+
+#roles .ir-spark {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.8cqi;
+  height: 8cqi;
+  min-height: 26px;
+}
+#roles .ir-spark i {
+  flex: 1;
+  height: 0;
+  border-radius: 1px;
+  background: linear-gradient(180deg, var(--brand), rgba(255, 160, 4, 0.3));
+  transition: height 0.62s var(--spring);
+}
+#roles .ir-view.on .ir-spark i {
+  height: var(--h);
+}
+#roles .ir-view.on .ir-spark i:nth-child(1) { transition-delay: 0.1s; }
+#roles .ir-view.on .ir-spark i:nth-child(2) { transition-delay: 0.15s; }
+#roles .ir-view.on .ir-spark i:nth-child(3) { transition-delay: 0.2s; }
+#roles .ir-view.on .ir-spark i:nth-child(4) { transition-delay: 0.25s; }
+#roles .ir-view.on .ir-spark i:nth-child(5) { transition-delay: 0.3s; }
+#roles .ir-view.on .ir-spark i:nth-child(6) { transition-delay: 0.35s; }
+#roles .ir-view.on .ir-spark i:nth-child(7) { transition-delay: 0.4s; }
+#roles .ir-view.on .ir-spark i:nth-child(8) { transition-delay: 0.45s; }
+
+/* --- 03 database administrator --- */
+
+#roles .ir-db {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2cqi;
+  min-width: 0;
+}
+#roles .ir-sql {
+  padding: 2.2cqi;
+  border-radius: 2cqi;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-dark);
+  font-size: clamp(5px, 1.65cqi, 10px);
+  line-height: 1.7;
+  color: #c9c9d4;
+}
+#roles .ir-sql .kw {
+  color: var(--brand);
+  font-weight: 600;
+}
+#roles .ir-sql .fn {
+  color: var(--mint-2);
+}
+#roles .ir-table {
+  font-size: clamp(5px, 1.7cqi, 10px);
+}
+#roles .ir-table .tr {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1cqi;
+  padding: 1.35cqi 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cfcfda;
+  font-variant-numeric: tabular-nums;
+}
+#roles .ir-table .th {
+  border-top: 0;
+  color: var(--on-dark-faint);
+  letter-spacing: 0.09em;
+}
+#roles .ir-table .tr span:nth-child(n + 2) {
+  text-align: right;
+}
+#roles .ir-table .ok {
+  color: var(--mint-2);
+}
+#roles .ir-table .warn {
+  color: var(--amber);
+}
+#roles .ir-view.on .ir-table .tr {
+  animation: ir-line 0.4s var(--ease) backwards;
+}
+#roles .ir-view.on .ir-table .tr:nth-child(2) { animation-delay: 0.12s; }
+#roles .ir-view.on .ir-table .tr:nth-child(3) { animation-delay: 0.2s; }
+#roles .ir-view.on .ir-table .tr:nth-child(4) { animation-delay: 0.28s; }
+#roles .ir-view.on .ir-table .tr:nth-child(5) { animation-delay: 0.36s; }
+
+/* --- 04 IT support: ticket queue --- */
+
+#roles .ir-queue {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15cqi;
+  min-width: 0;
+}
+#roles .q-row {
+  display: flex;
+  align-items: center;
+  gap: 1.6cqi;
+  padding: 1.5cqi 1.8cqi;
+  border: 1px solid var(--line-dark);
+  border-radius: 2cqi;
+  background: rgba(255, 255, 255, 0.045);
+  font-size: clamp(5px, 1.7cqi, 10px);
+}
+#roles .q-row .q-t {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #d9d9e2;
+}
+#roles .q-row .q-m {
+  flex: none;
+  color: var(--on-dark-faint);
+}
+#roles .q-row .p {
+  flex: none;
+  padding: 0.6cqi 1.4cqi;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: clamp(4.5px, 1.5cqi, 9px);
+  letter-spacing: 0.06em;
+}
+#roles .p1 { background: rgba(240, 115, 106, 0.2); color: #f79b94; }
+#roles .p2 { background: rgba(242, 189, 80, 0.18); color: #f3cd7c; }
+#roles .p3 { background: rgba(255, 255, 255, 0.1); color: var(--on-dark-muted); }
+#roles .q-row .p.ok { background: rgba(92, 201, 160, 0.2); color: var(--mint-2); }
+#roles .q-row.done .q-t {
+  color: var(--on-dark-faint);
+  text-decoration: line-through;
+}
+#roles .ir-view.on .q-row {
+  animation: ir-line 0.42s var(--ease) backwards;
+}
+#roles .ir-view.on .q-row:nth-child(1) { animation-delay: 0.06s; }
+#roles .ir-view.on .q-row:nth-child(2) { animation-delay: 0.14s; }
+#roles .ir-view.on .q-row:nth-child(3) { animation-delay: 0.22s; }
+#roles .ir-view.on .q-row:nth-child(4) { animation-delay: 0.3s; }
+#roles .ir-view.on .q-row:nth-child(5) { animation-delay: 0.38s; }
+
+/* --- 05 security analyst: radar + alerts --- */
+
+#roles .ir-guard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 2.8cqi;
+  min-width: 0;
+}
+#roles .ir-radar {
+  position: relative;
+  width: 16cqi;
+  min-width: 54px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 160, 4, 0.4);
+  overflow: hidden;
+}
+#roles .ir-radar i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 160, 4, 0.22);
+  border-radius: 50%;
+}
+#roles .ir-radar i:nth-child(1) {
+  width: 66%;
+  height: 66%;
+}
+#roles .ir-radar i:nth-child(2) {
+  width: 33%;
+  height: 33%;
+}
+#roles .ir-radar .sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 160, 4, 0.5),
+    rgba(255, 160, 4, 0) 62deg,
+    rgba(255, 160, 4, 0) 360deg
+  );
+}
+#roles .ir-view.on .ir-radar .sweep {
+  animation: ir-sweep 2.6s linear infinite;
+}
+@keyframes ir-sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#roles .ir-alerts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3cqi;
+  min-width: 0;
+}
+#roles .a-row {
+  display: flex;
+  align-items: center;
+  gap: 1.4cqi;
+  font-size: clamp(5px, 1.7cqi, 10px);
+}
+#roles .a-row .a-t {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #d9d9e2;
+}
+#roles .a-row .sev {
+  flex: none;
+  padding: 0.55cqi 1.4cqi;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: clamp(4.5px, 1.45cqi, 9px);
+  letter-spacing: 0.06em;
+}
+#roles .sev.hi { background: rgba(240, 115, 106, 0.2); color: #f79b94; }
+#roles .sev.md { background: rgba(242, 189, 80, 0.18); color: #f3cd7c; }
+#roles .sev.lo { background: rgba(255, 255, 255, 0.1); color: var(--on-dark-muted); }
+#roles .a-row .ok {
+  flex: none;
+  color: var(--mint-2);
+}
+#roles .a-row > span:last-child {
+  flex: none;
+  color: var(--on-dark-faint);
+}
+#roles .ir-view.on .a-row {
+  animation: ir-line 0.42s var(--ease) backwards;
+}
+#roles .ir-view.on .a-row:nth-child(1) { animation-delay: 0.1s; }
+#roles .ir-view.on .a-row:nth-child(2) { animation-delay: 0.2s; }
+#roles .ir-view.on .a-row:nth-child(3) { animation-delay: 0.3s; }
+
+/* --- 06 data centre technician: rack elevation --- */
+
+#roles .ir-racks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2cqi;
+  align-content: center;
+  min-width: 0;
+}
+#roles .rack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9cqi;
+  padding: 1.7cqi;
+  border: 1px solid var(--line-dark);
+  border-radius: 1.8cqi;
+  background: rgba(255, 255, 255, 0.04);
+}
+#roles .rack-id {
+  font-size: clamp(4.5px, 1.5cqi, 9px);
+  letter-spacing: 0.08em;
+  color: var(--on-dark-faint);
+  margin-bottom: 0.5cqi;
+}
+#roles .rack i {
+  display: block;
+  height: 2.1cqi;
+  min-height: 6px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  transform: scaleX(0.2);
+  transform-origin: left;
+  transition: transform 0.5s var(--spring), background-color 0.4s ease;
+}
+#roles .ir-view.on .rack i {
+  transform: scaleX(1);
+}
+#roles .ir-view.on .rack i.on {
+  background: linear-gradient(90deg, var(--brand-2), var(--brand));
+}
+/* Stagger the units so the racks fill from the top like a real boot. */
+#roles .ir-view.on .rack i:nth-child(2) { transition-delay: 0.06s; }
+#roles .ir-view.on .rack i:nth-child(3) { transition-delay: 0.11s; }
+#roles .ir-view.on .rack i:nth-child(4) { transition-delay: 0.16s; }
+#roles .ir-view.on .rack i:nth-child(5) { transition-delay: 0.21s; }
+#roles .ir-view.on .rack i:nth-child(6) { transition-delay: 0.26s; }
+#roles .ir-view.on .rack i:nth-child(7) { transition-delay: 0.31s; }
+#roles .ir-view.on .rack i:nth-child(8) { transition-delay: 0.36s; }
+#roles .ir-view.on .rack i:nth-child(9) { transition-delay: 0.41s; }
+#roles .ir-racks .rack:nth-child(2) i { transition-delay: 0.08s; }
+#roles .ir-racks .rack:nth-child(3) i { transition-delay: 0.16s; }
+
+/* ---------- laptop base ---------- */
+
+#roles .ir-base {
+  position: relative;
+  width: 114%;
+  height: 13px;
+  margin-left: -7%;
+  background: linear-gradient(180deg, #d7d7dd 0 38%, #adadb7 62%, #8a8a93);
+  border-radius: 0 0 10px 10px;
+  clip-path: polygon(1.1% 0, 98.9% 0, 100% 100%, 0 100%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+/* The lip you open the lid by. */
+#roles .ir-base span {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 78px;
+  max-width: 22%;
+  height: 5px;
+  transform: translateX(-50%);
+  border-radius: 0 0 7px 7px;
+  background: rgba(20, 20, 26, 0.28);
+}
+
+/* ---------- rail ---------- */
+
+#roles .ir-reel-rail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 44px;
+}
+#roles .ir-rail-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.34s var(--spring), border-color 0.22s ease,
+    background-color 0.22s ease, opacity 0.22s ease, box-shadow 0.22s ease;
+}
+#roles .ir-rail-btn:hover:not(:disabled) {
+  transform: scale(1.09);
+  border-color: rgba(17, 18, 18, 0.28);
+  box-shadow: 0 6px 18px -10px rgba(16, 16, 19, 0.5);
+}
+#roles .ir-rail-btn:active:not(:disabled) {
+  transform: scale(0.92);
+  transition-duration: 0.07s;
+}
+#roles .ir-rail-btn:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+#roles .ir-rail-btn svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#roles .ir-rail-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#roles .ir-rail-dots li {
+  display: block;
+  line-height: 0;
+}
+#roles .ir-rail-dots button {
+  display: block;
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(17, 18, 18, 0.18);
+  cursor: pointer;
+  transition: width 0.46s var(--spring), background-color 0.3s ease;
+}
+#roles .ir-rail-dots button:hover {
+  background: rgba(17, 18, 18, 0.4);
+}
+#roles .ir-rail-dots button[aria-current="true"] {
+  width: 28px;
+  background: linear-gradient(90deg, var(--brand-2), var(--brand));
+}
+
+/* ===========================================================================
+   THE SIX ROLES
+   =========================================================================== */
+
+#roles .ir-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* The sticky column is one viewport tall, so it unsticks a viewport before
+     the reel ends — which would let the machine drift off the top of the
+     screen while role 06 is still the active one. This tail gives the reel
+     exactly the extra run it needs for the last role to reach the centre
+     line before the machine is released. */
+  padding-bottom: max(0px, calc(50vh - var(--step-h, 640px) / 2));
+}
+
+#roles .ir-step {
+  position: relative;
+  min-height: var(--step-h, min(80vh, 640px));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 44px 0;
+  scroll-margin-top: 96px;
+  /* Entrance only — never a permanent wash. Once a role has been scrolled
+     into view it stays at full contrast whether or not it is the active one,
+     so all six read as black type rather than grey. */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease), transform 0.9s var(--ease);
+}
+#roles .ir-step.seen {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hairline spine down the left of the column, filled as far as the active
+   role — the quiet progress cue. */
+#roles .ir-step::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--spine, 22px) * -1);
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+#roles .ir-step::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--spine, 22px) * -1);
+  top: 0;
+  width: 1px;
+  height: 0;
+  background: linear-gradient(180deg, var(--brand), var(--brand-2));
+  transition: height 0.7s var(--ease);
+}
+#roles .ir-step.active::after,
+#roles .ir-step.past::after {
+  height: 100%;
+}
+
+#roles .ir-step-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 24px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  transition: background-color 0.5s var(--ease), color 0.5s var(--ease),
+    border-color 0.5s var(--ease), transform 0.55s var(--spring),
+    box-shadow 0.5s var(--ease);
+}
+#roles .ir-step.active .ir-step-no {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+  transform: scale(1.06);
+  box-shadow: 0 10px 26px -14px rgba(16, 16, 19, 0.85);
+}
+
+/* Role title — always the site's near-black, at full weight, active or not. */
+#roles .ir-step h3 {
+  margin: 0;
+  font-family: "Schibsted Grotesk", Archivo, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: clamp(28px, 3.1vw, 42px);
+  line-height: 1.08;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  color: var(--ink);
+  transition: color 0.4s var(--ease);
+}
+
+/* The one-line definition, given the weight of a standfirst. */
+#roles .ir-step-def {
+  margin: 18px 0 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--line);
+  font-size: clamp(16px, 1.5vw, 19px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+  color: var(--text);
+  transition: border-color 0.5s var(--ease);
+}
+#roles .ir-step.active .ir-step-def {
+  border-left-color: var(--brand);
+}
+
+#roles .ir-step > p:not(.ir-step-def) {
+  margin: 20px 0 0;
+  max-width: 46ch;
+  font-size: clamp(15px, 1.1vw, 16.5px);
+  line-height: 1.68;
+  letter-spacing: -0.008em;
+  color: var(--muted);
+}
+
+#roles .ir-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+#roles .ir-chips li {
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  transition: transform 0.32s var(--spring), border-color 0.24s ease,
+    background-color 0.24s ease, color 0.24s ease, box-shadow 0.24s ease;
+}
+#roles .ir-step.active .ir-chips li:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  background: var(--brand-soft);
+  color: var(--ink);
+  box-shadow: 0 8px 20px -14px rgba(250, 140, 22, 0.9);
+}
+
+/* ---------- reel: stacked layout ---------- */
+
+@media (max-width: 960px) {
+  #roles .ir-reel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    --step-h: 66vh;
+  }
+  /* The stacked band is only as tall as the machine, so it never unsticks
+     early and the tail is not needed. */
+  #roles .ir-steps {
+    padding-bottom: 0;
+  }
+  /* Opaque band, not a fade: the roles scroll underneath it. It breaks out
+     of the container gutters so the band — and the shadow under it — runs
+     the full width of the screen. */
+  #roles .ir-reel-sticky {
+    top: 0;
+    height: auto;
+    margin: 0 calc(var(--pad) * -1);
+    padding: 16px var(--pad) 18px;
+    background: var(--paper);
+    box-shadow: 0 18px 24px -18px rgba(16, 16, 19, 0.42);
+    z-index: 30;
+  }
+  #roles .ir-machine {
+    max-width: 350px;
+  }
+  #roles .ir-machine::before {
+    display: none;
+  }
+  #roles .ir-machine::after {
+    bottom: -18px;
+    height: 22px;
+  }
+  #roles .ir-reel-rail {
+    margin-top: 28px;
+  }
+  /* Each role is centred in its own box; role.js puts that centre in the
+     middle of the strip left clear below the pinned machine, so the whole
+     role reads at once instead of half of it sitting under the fold. */
+  #roles .ir-step {
+    min-height: 66vh;
+    justify-content: center;
+    padding: 24px 0 40px;
+  }
+  #roles .ir-step::before,
+  #roles .ir-step::after {
+    left: 0;
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  #roles .ir-machine {
+    max-width: 276px;
+  }
+  #roles .ir-reel-rail {
+    margin-top: 20px;
+  }
+  #roles .ir-step-no {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 18px;
+  }
+}
+
+/* ===========================================================================
+   NO-JS / PRE-BOOT FALLBACK
+
+   role.js adds .ir-ready to the section as soon as it takes over. Until then
+   — and forever, if the script never loads — everything renders complete and
+   legible rather than blank.
+   =========================================================================== */
+
+#roles:not(.ir-ready) .reveal,
+#roles:not(.ir-ready) .ir-step {
+  opacity: 1;
+  transform: none;
+}
+#roles:not(.ir-ready) [data-split] .w {
+  opacity: 1;
+  transform: none;
+}
+#roles:not(.ir-ready) .ir-view[data-view="1"] {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+#roles:not(.ir-ready) .ir-reel-rail {
+  visibility: hidden;
+}
+
+/* ===========================================================================
+   REVEAL + REDUCED MOTION
+   =========================================================================== */
+
+#roles .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+#roles .reveal.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.78s var(--ease) var(--d, 0s),
+    transform 0.88s var(--ease) var(--d, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #roles [data-split] .w {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+  #roles .reveal,
+  #roles .ir-step {
+    opacity: 1;
+    transform: none;
+  }
+  #roles .ir-label i,
+  #roles .ir-term .caret,
+  #roles .ir-view.on .net-flow path,
+  #roles .ir-view.on .ir-radar .sweep,
+  #roles .ir-view.on .ir-term p,
+  #roles .ir-view.on .ir-table .tr,
+  #roles .ir-view.on .q-row,
+  #roles .ir-view.on .a-row {
+    animation: none !important;
+  }
+  #roles .ir-chips li:hover,
+  #roles .ir-rail-btn:hover:not(:disabled) {
+    transform: none;
+  }
+  #roles .ir-view {
+    transform: none;
+    transition-duration: 0.18s;
+  }
+  #roles .ir-view.out {
+    transform: none;
+  }
+  #roles .ir-meter i::after,
+  #roles .ir-spark i,
+  #roles .rack i,
+  #roles .ir-step::after {
+    transition-duration: 0.2s;
+    transition-delay: 0s !important;
+  }
+}
