@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="2ichanges.css">
     <link rel="stylesheet" href="photo.css" />
     <script src="role.js"></script>
+    <link rel="stylesheet" href="roles-deck.css" />
+    <script src="roles-deck.js"></script>
   <script>
     // Entrance choreography gate: hide the cutouts + secondary UI before
     // first paint so the page opens empty (icon + name only). Skipped on
@@ -2123,6 +2125,151 @@
         </ol>
       </div>
     </section>
+
+
+    <!-- ============ THE DECK ============
+         Second treatment of the same six roles: a pinned deck of photographic
+         cards, scrubbed continuously from scroll position. Styles in
+         roles-deck.css, driven by roles-deck.js. -->
+    <section class="rd" id="roles-deck">
+      <div class="rd-head rd-reveal">
+        <div>
+          <p class="rd-label"><i></i>The deck</p>
+          <h2 data-rd-split>Key Roles in IT Infrastructure</h2>
+        </div>
+        <p>The same six jobs, dealt one card at a time. Every layer of the stack
+          has a person behind it &mdash; and a room, a rack or a screen where that
+          work actually happens.</p>
+      </div>
+
+      <div class="rd-stage">
+        <div class="rd-pin">
+          <div class="rd-deck">
+
+            <!-- 01 -->
+            <article class="rd-card" data-card="1">
+              <figure class="rd-media">
+                <img src="System-Administrator.jpg" width="600" height="400" decoding="async"
+                     alt="A system administrator working across two monitors in a server room" />
+                <figcaption class="rd-tag"><i></i>core-01 &middot; systemctl</figcaption>
+              </figure>
+              <div class="rd-body">
+                <span class="rd-ghost" aria-hidden="true">01</span>
+                <p class="rd-no"><b>01</b><span>of six</span></p>
+                <h3 class="rd-title">System Administrator</h3>
+                <p class="rd-def">Maintains servers, systems, and access for stability and performance.</p>
+                <p class="rd-copy">Owns the machines everything else runs on &mdash; provisioning,
+                  patching, monitoring and access control. When a box has to stay up through a
+                  release, a migration, or a bad Tuesday, this is the person keeping it there.</p>
+                <ul class="rd-chips"><li>Provisioning</li><li>Patching</li><li>Access control</li><li>Monitoring</li></ul>
+              </div>
+            </article>
+
+            <!-- 02 -->
+            <article class="rd-card" data-card="2">
+              <figure class="rd-media">
+                <img src="Network-Administrator.jpg" width="600" height="400" decoding="async"
+                     alt="A network administrator checking switching hardware in a comms cabinet" />
+                <figcaption class="rd-tag"><i></i>edge-rtr-01 &middot; topology</figcaption>
+              </figure>
+              <div class="rd-body">
+                <span class="rd-ghost" aria-hidden="true">02</span>
+                <p class="rd-no"><b>02</b><span>of six</span></p>
+                <h3 class="rd-title">Network Administrator</h3>
+                <p class="rd-def">Manages network setup, security, and continuous connectivity.</p>
+                <p class="rd-copy">Designs and runs the paths between everything: switching, routing,
+                  firewalls, VPNs, and the wireless nobody thinks about until it drops. The whole job
+                  is measured in the minutes nobody noticed.</p>
+                <ul class="rd-chips"><li>Routing</li><li>Switching</li><li>Firewalls</li><li>VPN</li></ul>
+              </div>
+            </article>
+
+            <!-- 03 -->
+            <article class="rd-card" data-card="3">
+              <figure class="rd-media">
+                <img src="Database-Administrator.jpg" width="600" height="400" decoding="async"
+                     alt="A database administrator reviewing query performance on screen" />
+                <figcaption class="rd-tag"><i></i>pg-primary &middot; psql</figcaption>
+              </figure>
+              <div class="rd-body">
+                <span class="rd-ghost" aria-hidden="true">03</span>
+                <p class="rd-no"><b>03</b><span>of six</span></p>
+                <h3 class="rd-title">Database Administrator</h3>
+                <p class="rd-def">Manages database design, tuning, backup, and security.</p>
+                <p class="rd-copy">Looks after the data itself &mdash; schema design, index and query
+                  tuning, replication, and the backups that only matter on the one day they are
+                  needed. Also the person who can tell you why that report got slow.</p>
+                <ul class="rd-chips"><li>Schema design</li><li>Tuning</li><li>Replication</li><li>Backups</li></ul>
+              </div>
+            </article>
+
+            <!-- 04 -->
+            <article class="rd-card" data-card="4">
+              <figure class="rd-media">
+                <img src="IT-Support-Specialist.jpg" width="600" height="400" decoding="async"
+                     alt="An IT support specialist helping a colleague with a laptop" />
+                <figcaption class="rd-tag"><i></i>servicedesk &middot; queue</figcaption>
+              </figure>
+              <div class="rd-body">
+                <span class="rd-ghost" aria-hidden="true">04</span>
+                <p class="rd-no"><b>04</b><span>of six</span></p>
+                <h3 class="rd-title">IT Support Specialist</h3>
+                <p class="rd-def">Supports users by resolving hardware, software, connectivity issues.</p>
+                <p class="rd-copy">First line for everyone else in the building: hardware, software,
+                  accounts and connectivity, triaged and resolved. Most of an organisation&rsquo;s
+                  experience of IT is this role, which is why response time is the number that counts.</p>
+                <ul class="rd-chips"><li>Triage</li><li>Hardware</li><li>Onboarding</li><li>SLAs</li></ul>
+              </div>
+            </article>
+
+            <!-- 05 -->
+            <article class="rd-card" data-card="5">
+              <figure class="rd-media">
+                <img src="Security-Analyst.jpg" width="600" height="400" decoding="async"
+                     alt="A security analyst monitoring threat dashboards across several screens" />
+                <figcaption class="rd-tag"><i></i>soc-01 &middot; sentinel</figcaption>
+              </figure>
+              <div class="rd-body">
+                <span class="rd-ghost" aria-hidden="true">05</span>
+                <p class="rd-no"><b>05</b><span>of six</span></p>
+                <h3 class="rd-title">Security Analyst</h3>
+                <p class="rd-def">Implements cybersecurity to protect systems from threats.</p>
+                <p class="rd-copy">Watches for what should not be happening and closes the gap before
+                  it does: monitoring, hardening, incident response, and the audits that keep it
+                  honest. Prevention is invisible work &mdash; this role is how it gets measured.</p>
+                <ul class="rd-chips"><li>Monitoring</li><li>Hardening</li><li>Incident response</li><li>Audits</li></ul>
+              </div>
+            </article>
+
+            <!-- 06 -->
+            <article class="rd-card" data-card="6">
+              <figure class="rd-media">
+                <img src="Data-Center-Technician.jpg" width="600" height="400" decoding="async"
+                     alt="Data centre technicians working at a rack on the data hall floor" />
+                <figcaption class="rd-tag"><i></i>dc-floor &middot; rack ops</figcaption>
+              </figure>
+              <div class="rd-body">
+                <span class="rd-ghost" aria-hidden="true">06</span>
+                <p class="rd-no"><b>06</b><span>of six</span></p>
+                <h3 class="rd-title">Data Center Technician</h3>
+                <p class="rd-def">Maintains hardware, power, and cabling in data centers.</p>
+                <p class="rd-copy">Hands on the physical layer: racking and stacking, structured
+                  cabling, power distribution, cooling, and the swap-outs that happen at three in the
+                  morning. Every abstraction above depends on this floor staying tidy.</p>
+                <ul class="rd-chips"><li>Racking</li><li>Cabling</li><li>Power</li><li>Cooling</li></ul>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="rd-rail">
+            <ol class="rd-seg"></ol>
+            <p class="rd-now"><b>01</b><span>System Administrator</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 
 
