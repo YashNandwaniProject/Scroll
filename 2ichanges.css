@@ -3493,7 +3493,8 @@ h6 {
 
 p {
   font-family: var(--_font-family---paragraph-font);
-  color: var(--paragraph-color);
+  /* color: var(--paragraph-color); */
+  color: #f0eeee;
   font-size: var(--_typography---paragraph-small);
   line-height: var(--_line-height---paragraph-small);
   font-weight: var(--_font-weight---normal);
@@ -13408,3 +13409,598 @@ figure {
                         height: 140px;
                     }
                 }
+
+/* ==========================================================================
+   TRADITIONAL IT TECHNOLOGIES  ·  CAPABILITY STRIP
+   BENEFITS OF A STRONG TRADITIONAL IT FOUNDATION  ·  TESTIMONIALS
+
+   Built on the same vocabulary as the FAQ and resourcing sections that
+   bracket them: 1240px container, 100px vertical rhythm, #f7f7f5 ground with
+   #f1f0eb cards at 18px radius, the pill subtitle, and the site's responsive
+   h2 scale (--_typography---h2). One dark band in the middle for contrast,
+   echoing the ownership-moment section further up the page.
+   ========================================================================== */
+
+.section-titech,
+.section-capstrip,
+.section-foundation,
+.section-voices {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 100px 20px;
+  font-family: var(--_font-family---paragraph-font);
+}
+
+.section-titech *,
+.section-capstrip *,
+.section-foundation *,
+.section-voices * {
+  box-sizing: border-box;
+}
+
+.titech-container,
+.capstrip-container,
+.foundation-container,
+.voices-container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   1. Traditional IT Technologies — editorial split, heading against the copy
+   -------------------------------------------------------------------------- */
+
+.section-titech {
+  background-color: #F2F1EF;
+}
+
+.titech-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  grid-column-gap: 72px;
+  grid-row-gap: 40px;
+  align-items: start;
+}
+
+.titech-title {
+  margin: 0;
+}
+
+.titech-body {
+  grid-row-gap: 22px;
+  flex-flow: column;
+  display: flex;
+}
+
+.titech-body .section-description {
+  margin: 0;
+}
+
+/* First paragraph carries the section, so it sets slightly larger. */
+.titech-lead {
+  color: var(--title-color);
+  font-size: var(--_typography---paragraph-large);
+  letter-spacing: var(--_letter-spacing---paragraph-large);
+}
+
+/* --------------------------------------------------------------------------
+   2. Capability strip — five hairline-separated columns on a clean ground
+   -------------------------------------------------------------------------- */
+
+.section-capstrip {
+  background-color: var(--white);
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.capstrip-list {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+}
+
+.capstrip-item {
+  grid-row-gap: 18px;
+  border-left: 1px solid var(--border-8);
+  flex-flow: column;
+  align-items: flex-start;
+  padding: 4px 28px;
+  display: flex;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .5s cubic-bezier(.25, .8, .25, 1);
+}
+
+.capstrip-item:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.capstrip-item:last-child {
+  padding-right: 0;
+}
+
+.capstrip-item.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.capstrip-icon {
+  color: var(--title-color);
+  background-color: #f1f0eb;
+  border-radius: 12px;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  transition: background-color .3s ease, color .3s ease;
+  display: inline-flex;
+}
+
+.capstrip-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.capstrip-item:hover .capstrip-icon {
+  background-color: var(--primary-color);
+}
+
+.capstrip-label {
+  color: var(--paragraph-color);
+  letter-spacing: var(--_letter-spacing---paragraph-small);
+  margin: 0;
+  font-size: var(--_typography---paragraph-small);
+  line-height: var(--_line-height---paragraph-large);
+}
+
+/* --------------------------------------------------------------------------
+   3. Benefits of a Strong Traditional IT Foundation — the dark band
+   -------------------------------------------------------------------------- */
+
+.section-foundation {
+  background-color: var(--title-color);
+  color: var(--white);
+}
+
+.foundation-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-column-gap: 72px;
+  grid-row-gap: 40px;
+  align-items: stretch;
+}
+
+.foundation-subtitle-single {
+  background-color: var(--white-12);
+}
+
+.foundation-subtitle {
+  color: var(--white);
+}
+
+.foundation-title {
+  font-family: var(--_font-family---title-font);
+  color: var(--white);
+  font-size: var(--_typography---h2);
+  line-height: var(--_line-height---h2);
+  font-weight: var(--_font-weight---medium);
+  letter-spacing: var(--_letter-spacing---h2);
+  margin: 0;
+}
+
+.foundation-body {
+  grid-row-gap: 22px;
+  border-top: 1px solid var(--white-12);
+  flex-flow: column;
+  padding-top: 30px;
+  display: flex;
+}
+
+.foundation-text {
+  color: var(--white-70);
+  letter-spacing: var(--_letter-spacing---paragraph-small);
+  margin: 0;
+  font-size: var(--_typography---paragraph-small);
+  line-height: var(--_line-height---paragraph-large);
+}
+
+.foundation-text.is-lead {
+  color: var(--white);
+  font-size: var(--_typography---paragraph-large);
+  letter-spacing: var(--_letter-spacing---paragraph-large);
+}
+
+/* --------------------------------------------------------------------------
+   4. Testimonials — the resourcing card contract, reused verbatim
+   -------------------------------------------------------------------------- */
+
+.section-voices {
+  background-color: #f7f7f5;
+}
+
+.voices-head {
+  margin-bottom: 50px;
+}
+
+.voices-title {
+  max-width: 650px;
+  margin: 0;
+}
+
+.voices-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  display: grid;
+}
+
+.voices-card {
+  grid-row-gap: 20px;
+  background-color: #f1f0eb;
+  border-radius: 18px;
+  flex-flow: column;
+  margin: 0;
+  padding: 32px 28px;
+  display: flex;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform .3s cubic-bezier(.25, .8, .25, 1),
+              background-color .3s ease,
+              box-shadow .3s ease,
+              opacity .6s ease;
+}
+
+.voices-card.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.voices-card:hover {
+  background-color: #eae9e3;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px #0000000d;
+}
+
+.voices-mark {
+  color: var(--primary-color);
+  flex: none;
+  display: inline-flex;
+}
+
+.voices-mark svg {
+  width: 30px;
+  height: auto;
+}
+
+.voices-quote {
+  color: var(--title-color);
+  letter-spacing: var(--_letter-spacing---paragraph-small);
+  flex: 1;
+  margin: 0;
+  font-size: var(--_typography---paragraph-small);
+  line-height: var(--_line-height---paragraph-large);
+}
+
+.voices-author {
+  grid-row-gap: 5px;
+  border-top: 1px solid var(--border-8);
+  flex-flow: column;
+  padding-top: 18px;
+  display: flex;
+}
+
+.voices-name {
+  color: var(--title-color);
+  letter-spacing: var(--_letter-spacing---paragraph-large);
+  font-size: var(--_typography---paragraph-large);
+  font-weight: var(--_font-weight---medium);
+  line-height: var(--_line-height---normal);
+}
+
+.voices-role {
+  font-family: var(--_font-family---subtitle-font);
+  color: var(--paragraph-color);
+  letter-spacing: var(--_letter-spacing---label-small);
+  font-size: var(--_typography---label-small);
+  line-height: 140%;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media screen and (max-width: 1100px) {
+
+  .titech-split,
+  .foundation-split {
+    grid-column-gap: 48px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+
+  .titech-split,
+  .foundation-split {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: 28px;
+  }
+
+  /* Hairlines only read as columns; once the strip wraps, space does the work. */
+  .capstrip-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-column-gap: 28px;
+    grid-row-gap: 36px;
+  }
+
+  .capstrip-item {
+    border-left: 0;
+    padding: 0;
+  }
+
+  .voices-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .section-titech,
+  .section-foundation,
+  .section-voices {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .section-capstrip {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .capstrip-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-row-gap: 30px;
+  }
+
+  .voices-head {
+    margin-bottom: 32px;
+  }
+
+  .voices-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .voices-card {
+    padding: 24px 20px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+
+  .section-titech,
+  .section-capstrip,
+  .section-foundation,
+  .section-voices {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section-titech,
+  .section-foundation,
+  .section-voices {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .capstrip-list {
+    grid-template-columns: minmax(0, 1fr);
+    grid-row-gap: 26px;
+  }
+
+  .titech-lead,
+  .foundation-text.is-lead {
+    font-size: var(--_typography---paragraph-small);
+    letter-spacing: var(--_letter-spacing---paragraph-small);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Specificity guard for the testimonial card's semantic elements.
+
+   pixel.css has an unterminated block comment inside its :root rule — it opens
+   at pixel.css line 1808 and only closes 37 lines later, on the line that also
+   carries :root's closing brace. That brace is therefore commented out, so the
+   browser parses the whole remainder of pixel.css as CSS nesting *inside*
+   :root. Its bare element rules end up matching as ":root & figure",
+   ":root & blockquote" and ":root & figcaption" — specificity (0,1,1), which
+   outranks a single class. That is why .voices-card / .voices-quote /
+   .voices-author lose margin, border and alignment to it.
+
+   Scoping these three to the section clears the bar at (0,2,0) without
+   touching pixel.css. Fixing that comment is the real repair; until then
+   anything here that styles a figure, blockquote or figcaption needs two
+   classes to hold its ground.
+   -------------------------------------------------------------------------- */
+
+.section-voices .voices-card {
+  margin: 0;
+}
+
+.section-voices .voices-quote {
+  border-left: 0;
+  padding: 0;
+  font-size: var(--_typography---paragraph-small);
+  line-height: var(--_line-height---paragraph-large);
+}
+
+.section-voices .voices-author {
+  text-align: left;
+  margin-top: 0;
+}
+
+/* The quote mark takes the icon-tile treatment used by the resourcing cards
+   and the capability strip — the brand violet reads as a surface, not as a
+   30px glyph floating on the card. */
+.voices-mark {
+  color: var(--title-color);
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+}
+
+.voices-mark svg {
+  width: 20px;
+}
+
+/* ==========================================================================
+   SECTION IMAGERY  ·  Traditional IT Technologies + Foundation
+   --------------------------------------------------------------------------
+   Both sections run text against a single image column that stretches to the
+   height of the copy beside it, so the two halves stay optically level however
+   the paragraphs reflow. Three layered motions, all opt-out under
+   prefers-reduced-motion:
+
+     · reveal   — the frame rises and fades in once, on scroll
+     · zoom     — the picture eases up on hover/focus inside a clipped frame
+     · parallax — the picture drifts a few pixels against the pointer
+
+   The picture sits at scale(1.08) at rest so the drift and the zoom always
+   have cover to move into and never expose an edge. That resting scale also
+   crops the black strip baked into the top-left of the Technologies source
+   image, which is why it is not scale(1).
+   ========================================================================== */
+
+.titech-split {
+  align-items: stretch;
+}
+
+.titech-content,
+.foundation-content {
+  flex-flow: column;
+  justify-content: center;
+  display: flex;
+}
+
+.titech-content .subtitle-wrapper,
+.foundation-content .subtitle-wrapper {
+  margin-bottom: 20px;
+}
+
+.titech-title,
+.foundation-title {
+  margin-bottom: 26px;
+}
+
+.titech-figure,
+.foundation-figure {
+  border-radius: 18px;
+  width: 100%;
+  min-height: 340px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.25, .8, .25, 1);
+}
+
+.titech-figure.is-revealed,
+.foundation-figure.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* On the dark band the frame needs an edge, or it floats off the background. */
+.foundation-figure {
+  box-shadow: inset 0 0 0 1px var(--white-12);
+}
+
+.titech-image,
+.foundation-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform: translate3d(var(--px, 0px), var(--py, 0px), 0) scale(1.08);
+  transition: transform .45s cubic-bezier(.25, .8, .25, 1);
+}
+
+.titech-figure:hover .titech-image,
+.foundation-figure:hover .foundation-image {
+  transform: translate3d(var(--px, 0px), var(--py, 0px), 0) scale(1.14);
+}
+
+/* A quiet scrim keeps the busy source images from fighting the type next to
+   them, and deepens a touch on hover so the zoom reads as intentional. */
+.titech-figure:after,
+.foundation-figure:after {
+  content: "";
+  pointer-events: none;
+  background-image: linear-gradient(200deg, #0000 45%, #11121240);
+  transition: opacity .45s ease;
+  position: absolute;
+  inset: 0;
+}
+
+.titech-figure:hover:after,
+.foundation-figure:hover:after {
+  opacity: .55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .titech-figure,
+  .foundation-figure {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .titech-image,
+  .foundation-image,
+  .titech-figure:hover .titech-image,
+  .foundation-figure:hover .foundation-image {
+    transform: scale(1.08);
+    transition: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+
+  /* Stacked, the frame has no neighbour to match, so it takes its own ratio. */
+  .titech-figure,
+  .foundation-figure {
+    aspect-ratio: 16/9;
+    min-height: 0;
+  }
+
+  /* Copy leads on small screens; the picture follows it. */
+  .foundation-figure {
+    order: 2;
+  }
+
+  .foundation-content {
+    order: 1;
+  }
+
+  .foundation-split {
+    display: flex;
+    flex-flow: column;
+  }
+}
+
+@media screen and (max-width: 479px) {
+
+  .titech-figure,
+  .foundation-figure {
+    aspect-ratio: 3/2;
+  }
+}
