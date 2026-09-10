@@ -29,6 +29,7 @@
     <script src="role.js"></script>
     <link rel="stylesheet" href="roles-deck.css" />
     <script src="roles-deck.js"></script>
+    <link rel="stylesheet" href="line.css">
   <script>
     // Entrance choreography gate: hide the cutouts + secondary UI before
     // first paint so the page opens empty (icon + name only). Skipped on
@@ -1756,6 +1757,50 @@
 
 
 
+                <!-- ============ TRADITIONAL IT TECHNOLOGIES ============ -->
+        <section class="section-titech" id="traditional-it-technologies">
+            <div class="titech-container">
+                <div class="titech-split">
+                    <div class="titech-content">
+                        <div class="subtitle-wrapper">
+                            <div class="subtitle-single">
+                                <div class="subtitle">On-Premise</div>
+                            </div>
+                        </div>
+                        <h2 class="section-title titech-title">Traditional IT Technologies</h2>
+                        <div class="titech-body">
+                            <p class="section-description titech-lead">
+                                Traditional IT focuses on establishing and managing on-premises infrastructure, forming
+                                the core technological framework of an organization. Unlike cloud-based solutions, which
+                                depend on third-party hosting services, traditional IT provides businesses with direct
+                                control over their digital environment. Companies utilizing traditional IT maintain
+                                their own email servers, file storage systems, and business applications within physical
+                                locations.
+                            </p>
+                            <p class="section-description">
+                                This approach offers greater flexibility, enabling businesses to customize their
+                                configurations to meet specific operational requirements. By managing their
+                                infrastructure in-house, businesses can optimize performance, enhance security, and
+                                tailor solutions to suit their unique needs.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="titech-figure" data-parallax>
+                        <img src="Traditional-IT-Technologies.png" loading="lazy" class="titech-image"
+                            alt="Connected on-premise systems mapped across an industrial facility at night" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1881,250 +1926,6 @@
 
 
 
-
-            <!-- ============ THE REEL ============ -->
-    <section class="ir-sec" id="roles">
-      <div class="ir-sec-head reveal">
-        <div>
-          <p class="ir-label"><i></i>The backbone</p>
-          <h2 data-split>Key Roles in IT Infrastructure</h2>
-        </div>
-        <p>Six jobs that between them own every layer &mdash; from the cabling on the
-          data centre floor to the account that lets someone log in on Monday. Scroll,
-          and the console follows along.</p>
-      </div>
-
-      <div class="ir-reel">
-
-        <!-- Sticky machine. Every screen is drawn in HTML and CSS, so it
-             animates, scales and stays legible without a single screenshot. -->
-        <div class="ir-reel-sticky">
-          <div class="ir-machine">
-            <div class="ir-laptop" id="laptop" data-view="1" role="img"
-                 aria-label="A workstation cycling through the console each infrastructure role works in">
-              <div class="ir-lid">
-                <div class="ir-screen">
-                  <div class="ir-chrome">
-                    <span class="ir-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                    <span class="ir-chrome-title" id="chrome-title">core-01 &mdash; systemctl</span>
-                    <span class="ir-chrome-badge">LIVE</span>
-                  </div>
-
-                  <div class="ir-views">
-
-                    <!-- 01 System Administrator -->
-                    <div class="ir-view" data-view="1">
-                      <div class="ir-term">
-                        <p><span class="dim">admin@core-01</span> ~ % <span class="cmd">systemctl status --fleet</span></p>
-                        <p class="ok">core-01.api      active (running)   42d</p>
-                        <p class="ok">core-02.api      active (running)   42d</p>
-                        <p class="ok">core-03.worker   active (running)   17d</p>
-                        <p class="warn">core-04.worker   reloading&hellip;      0s</p>
-                        <p class="ok">core-05.cache    active (running)   63d</p>
-                        <p><span class="dim">admin@core-01</span> ~ % <span class="caret" aria-hidden="true"></span></p>
-                      </div>
-                      <div class="ir-side">
-                        <div class="ir-meter"><span>CPU</span><i style="--v:38%"></i><b>38%</b></div>
-                        <div class="ir-meter"><span>MEM</span><i style="--v:61%"></i><b>61%</b></div>
-                        <div class="ir-meter"><span>DISK</span><i style="--v:24%"></i><b>24%</b></div>
-                        <div class="ir-kpi"><b>99.98%</b><span>uptime &middot; 90 days</span></div>
-                      </div>
-                    </div>
-
-                    <!-- 02 Network Administrator -->
-                    <div class="ir-view" data-view="2">
-                      <div class="ir-net">
-                        <svg viewBox="0 0 300 168" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-                          <g class="net-links">
-                            <path d="M40 84 H96" /><path d="M136 84 H176" />
-                            <path d="M216 84 C 240 84, 240 34, 256 34" />
-                            <path d="M216 84 H256" />
-                            <path d="M216 84 C 240 84, 240 134, 256 134" />
-                          </g>
-                          <g class="net-flow">
-                            <path d="M40 84 H96" /><path d="M136 84 H176" />
-                            <path d="M216 84 C 240 84, 240 34, 256 34" />
-                            <path d="M216 84 H256" />
-                            <path d="M216 84 C 240 84, 240 134, 256 134" />
-                          </g>
-                          <g class="net-nodes">
-                            <rect x="8" y="68" width="34" height="32" rx="8" class="n-wan" />
-                            <rect x="96" y="66" width="40" height="36" rx="9" class="n-fw" />
-                            <rect x="176" y="66" width="40" height="36" rx="9" class="n-core" />
-                            <rect x="256" y="20" width="36" height="28" rx="8" />
-                            <rect x="256" y="70" width="36" height="28" rx="8" />
-                            <rect x="256" y="120" width="36" height="28" rx="8" />
-                          </g>
-                          <g class="net-text">
-                            <text x="25" y="88">WAN</text>
-                            <text x="116" y="88">FW</text>
-                            <text x="196" y="88">CORE</text>
-                            <text x="274" y="38">SW-A</text>
-                            <text x="274" y="88">SW-B</text>
-                            <text x="274" y="138">WLAN</text>
-                          </g>
-                        </svg>
-                      </div>
-                      <div class="ir-side">
-                        <div class="ir-kpi"><b>1.8 Gb/s</b><span>egress, 5-min avg</span></div>
-                        <div class="ir-spark" aria-hidden="true">
-                          <i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:44%"></i>
-                          <i style="--h:71%"></i><i style="--h:58%"></i><i style="--h:83%"></i>
-                          <i style="--h:64%"></i><i style="--h:49%"></i>
-                        </div>
-                        <div class="ir-chiprow"><span class="ok">0 drops</span><span>12 ms RTT</span></div>
-                      </div>
-                    </div>
-
-                    <!-- 03 Database Administrator -->
-                    <div class="ir-view" data-view="3">
-                      <div class="ir-db">
-                        <p class="ir-sql"><span class="kw">SELECT</span> o.id, c.name, <span class="fn">SUM</span>(l.qty)
-                          <span class="kw">FROM</span> orders o <span class="kw">JOIN</span> lines l <span class="kw">USING</span> (order_id)</p>
-                        <div class="ir-table" role="presentation">
-                          <div class="tr th"><span>TABLE</span><span>ROWS</span><span>INDEX HIT</span></div>
-                          <div class="tr"><span>orders</span><span>4.2 M</span><span class="ok">99.4%</span></div>
-                          <div class="tr"><span>lines</span><span>18.7 M</span><span class="ok">98.9%</span></div>
-                          <div class="tr"><span>customers</span><span>612 K</span><span class="ok">99.8%</span></div>
-                          <div class="tr"><span>audit_log</span><span>96.1 M</span><span class="warn">91.2%</span></div>
-                        </div>
-                      </div>
-                      <div class="ir-side">
-                        <div class="ir-kpi"><b>0.4 s</b><span>replication lag</span></div>
-                        <div class="ir-meter"><span>P95</span><i style="--v:22%"></i><b>41 ms</b></div>
-                        <div class="ir-chiprow"><span class="ok">Backup 06:00 &check;</span></div>
-                      </div>
-                    </div>
-
-                    <!-- 04 IT Support Specialist -->
-                    <div class="ir-view" data-view="4">
-                      <div class="ir-queue">
-                        <div class="q-row"><span class="p p1">P1</span><span class="q-t">Laptop will not boot after update</span><span class="q-m">3 m</span></div>
-                        <div class="q-row"><span class="p p2">P2</span><span class="q-t">VPN drops on the 4th floor</span><span class="q-m">12 m</span></div>
-                        <div class="q-row"><span class="p p2">P2</span><span class="q-t">Shared drive permissions</span><span class="q-m">26 m</span></div>
-                        <div class="q-row"><span class="p p3">P3</span><span class="q-t">New starter kit &mdash; Tuesday</span><span class="q-m">2 h</span></div>
-                        <div class="q-row done"><span class="p ok">&check;</span><span class="q-t">Password reset &mdash; resolved</span><span class="q-m">1 m</span></div>
-                      </div>
-                      <div class="ir-side">
-                        <div class="ir-kpi"><b>15 min</b><span>first response, P1</span></div>
-                        <div class="ir-meter"><span>SLA</span><i style="--v:94%"></i><b>94%</b></div>
-                        <div class="ir-chiprow"><span>4 open</span><span class="ok">31 closed</span></div>
-                      </div>
-                    </div>
-
-                    <!-- 05 Security Analyst -->
-                    <div class="ir-view" data-view="5">
-                      <div class="ir-guard">
-                        <div class="ir-radar" aria-hidden="true"><i></i><i></i><span class="sweep"></span></div>
-                        <div class="ir-alerts">
-                          <div class="a-row"><span class="sev hi">HIGH</span><span class="a-t">Brute force &mdash; 203.0.113.44</span><span class="ok">blocked</span></div>
-                          <div class="a-row"><span class="sev md">MED</span><span class="a-t">Stale admin token</span><span class="ok">rotated</span></div>
-                          <div class="a-row"><span class="sev lo">LOW</span><span class="a-t">TLS 1.1 endpoint</span><span>patched</span></div>
-                        </div>
-                      </div>
-                      <div class="ir-side">
-                        <div class="ir-kpi"><b>1,284</b><span>threats blocked today</span></div>
-                        <div class="ir-meter"><span>Hardening</span><i style="--v:88%"></i><b>88%</b></div>
-                        <div class="ir-chiprow"><span class="ok">0 open criticals</span></div>
-                      </div>
-                    </div>
-
-                    <!-- 06 Data Center Technician -->
-                    <div class="ir-view" data-view="6">
-                      <div class="ir-racks" aria-hidden="true">
-                        <div class="rack"><span class="rack-id">R-01</span><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i></div>
-                        <div class="rack"><span class="rack-id">R-02</span><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-                        <div class="rack"><span class="rack-id">R-03</span><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
-                      </div>
-                      <div class="ir-side">
-                        <div class="ir-kpi"><b>21.4 &deg;C</b><span>cold aisle inlet</span></div>
-                        <div class="ir-meter"><span>Power</span><i style="--v:67%"></i><b>6.7 kW</b></div>
-                        <div class="ir-chiprow"><span class="ok">A+B feed OK</span><span>3 racks</span></div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-              <div class="ir-base" aria-hidden="true"><span></span></div>
-            </div>
-
-            <!-- Progress + manual control, for anyone who would rather click. -->
-            <div class="ir-reel-rail">
-              <button class="ir-rail-btn" type="button" id="rail-prev" aria-label="Previous role">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-              </button>
-              <ol class="ir-rail-dots" id="rail-dots"></ol>
-              <button class="ir-rail-btn" type="button" id="rail-next" aria-label="Next role">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <ol class="ir-steps">
-          <li class="ir-step" id="role-1" data-view="1">
-            <span class="ir-step-no">01</span>
-            <h3>System Administrator</h3>
-            <p class="ir-step-def">Maintains servers, systems, and access for stability and performance.</p>
-            <p>Owns the machines everything else runs on &mdash; provisioning, patching,
-              monitoring and access control. When a box has to stay up through a release,
-              a migration, or a bad Tuesday, this is the person keeping it there.</p>
-            <ul class="ir-chips"><li>Provisioning</li><li>Patching</li><li>Access control</li><li>Monitoring</li></ul>
-          </li>
-
-          <li class="ir-step" id="role-2" data-view="2">
-            <span class="ir-step-no">02</span>
-            <h3>Network Administrator</h3>
-            <p class="ir-step-def">Manages network setup, security, and continuous connectivity.</p>
-            <p>Designs and runs the paths between everything: switching, routing, firewalls,
-              VPNs, and the wireless nobody thinks about until it drops. The whole job is
-              measured in the minutes nobody noticed.</p>
-            <ul class="ir-chips"><li>Routing</li><li>Switching</li><li>Firewalls</li><li>VPN</li></ul>
-          </li>
-
-          <li class="ir-step" id="role-3" data-view="3">
-            <span class="ir-step-no">03</span>
-            <h3>Database Administrator</h3>
-            <p class="ir-step-def">Manages database design, tuning, backup, and security.</p>
-            <p>Looks after the data itself &mdash; schema design, index and query tuning,
-              replication, and the backups that only matter on the one day they are needed.
-              Also the person who can tell you why that report got slow.</p>
-            <ul class="ir-chips"><li>Schema design</li><li>Tuning</li><li>Replication</li><li>Backups</li></ul>
-          </li>
-
-          <li class="ir-step" id="role-4" data-view="4">
-            <span class="ir-step-no">04</span>
-            <h3>IT Support Specialist</h3>
-            <p class="ir-step-def">Supports users by resolving hardware, software, connectivity issues.</p>
-            <p>First line for everyone else in the building: hardware, software, accounts
-              and connectivity, triaged and resolved. Most of an organisation's experience
-              of IT is this role, which is why response time is the number that counts.</p>
-            <ul class="ir-chips"><li>Triage</li><li>Hardware</li><li>Onboarding</li><li>SLAs</li></ul>
-          </li>
-
-          <li class="ir-step" id="role-5" data-view="5">
-            <span class="ir-step-no">05</span>
-            <h3>Security Analyst</h3>
-            <p class="ir-step-def">Implements cybersecurity to protect systems from threats.</p>
-            <p>Watches for what should not be happening and closes the gap before it does:
-              monitoring, hardening, incident response, and the audits that keep it honest.
-              Prevention is invisible work &mdash; this role is how it gets measured.</p>
-            <ul class="ir-chips"><li>Monitoring</li><li>Hardening</li><li>Incident response</li><li>Audits</li></ul>
-          </li>
-
-          <li class="ir-step" id="role-6" data-view="6">
-            <span class="ir-step-no">06</span>
-            <h3>Data Center Technician</h3>
-            <p class="ir-step-def">Maintains hardware, power, and cabling in data centers.</p>
-            <p>Hands on the physical layer: racking and stacking, structured cabling, power
-              distribution, cooling, and the swap-outs that happen at three in the morning.
-              Every abstraction above depends on this floor staying tidy.</p>
-            <ul class="ir-chips"><li>Racking</li><li>Cabling</li><li>Power</li><li>Cooling</li></ul>
-          </li>
-        </ol>
-      </div>
-    </section>
 
 
     <!-- ============ THE DECK ============
@@ -2346,9 +2147,867 @@
 
 
 
+                <section class="section expertise">
+            <div class="container">
+                <div data="bottom-fade" class="expertise-content">
+                    <div class="expertise-image-wrapper">
+                        <div data-poster-url="/17847367531823259455 (1).png"
+                            data-video-urls="/17847367531823259455 (1).png" data-autoplay="true" data-loop="true"
+                            data-wf-ignore="true" class="expertise-video w-background-video w-background-video-atom">
+                            <video id="ac6c70b7-d4d1-81b4-5447-60af76b748ff-video" autoplay="" loop="" style="
+                    background-image: url('/17847367531823259455\ \(1\).png');
+                  " muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+                                <source src="/17847367531823259455 (1).png" data-wf-ignore="true" />
+                                <source src="/17847367531823259455 (1).png" data-wf-ignore="true" />
+                            </video><noscript>
+                                <style>
+                                    [data-wf-bgvideo-fallback-img] {
+                                        display: none;
+                                    }
+
+                                    @media (prefers-reduced-motion: reduce) {
+                                        [data-wf-bgvideo-fallback-img] {
+                                            position: absolute;
+                                            z-index: -100;
+                                            display: inline-block;
+                                            height: 100%;
+                                            width: 100%;
+                                            object-fit: cover;
+                                        }
+                                    }
+                                </style><img data-wf-bgvideo-fallback-img="true" src="/17847367531823259455 (1).png"
+                                    alt="" />
+                            </noscript>
+                            <!-- <div aria-live="polite">
+                <button type="button" data-w-bg-video-control="true"
+                  aria-controls="ac6c70b7-d4d1-81b4-5447-60af76b748ff-video"
+                  class="w-backgroundvideo-backgroundvideoplaypausebutton play-pause-button w-background-video--control">
+                  <span class="play-state"><img
+                      src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a425c7061358fc9cade16b0_Pause%20Button.svg"
+                      loading="lazy" alt="Pause video" class="play-pause-button-icon" /></span><span hidden=""
+                    class="pause-state"><img loading="lazy" alt="Play video"
+                      src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a425c660203043f5e67c7b2_Play%20Button.svg"
+                      class="play-pause-button-icon" /></span>
+                </button>
+              </div> -->
+                        </div>
+                        <!-- <img
+              src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a1609df2c1d6c949c722ce1_Expertise%20Image%20Bottom%20Shape.webp"
+              loading="lazy" alt="Expertise Image Bottom Shape" class="expertise-image-bottom-shape" /><img
+              src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a160997c0e80d6d509b911b_Expertise%20Image%20Top%20Shape.webp"
+              loading="lazy" alt="Expertise Image Top Shape" class="expertise-image-top-shape" /> -->
+                        <!-- <div class="expertise-card">
+              <div class="expertise-card-title-wrapper">
+                <div class="expertise-card-title">
+                  Consultation is not only
+                  &quot;<strong>Advising</strong>&quot;
+                </div>
+              </div>
+              <div class="expertise-card-content">
+                <div class="expertise-card-single">
+                  <div class="expertise-card-text-wrap">
+                    <div class="expertise-card-name">Collaboration</div>
+                    <div class="expertise-card-name color-change">Spent</div>
+                  </div>
+                  <div class="expertise-card-right-content">
+                    <div class="expertise-card-circle"></div>
+                    <div class="expertise-number-text counter">74%</div>
+                  </div>
+                </div>
+                <div class="expertise-card-single">
+                  <div class="expertise-card-text-wrap">
+                    <div class="expertise-card-name">Guidance</div>
+                    <div class="expertise-card-name color-change">
+                      Available
+                    </div>
+                  </div>
+                  <div class="expertise-card-right-content">
+                    <div class="expertise-card-circle"></div>
+                    <div class="expertise-number-text counter">58%</div>
+                  </div>
+                </div>
+                <div class="expertise-card-single">
+                  <div class="expertise-card-text-wrap">
+                    <div class="expertise-card-name">Empowerment</div>
+                    <div class="expertise-card-name color-change">Spent</div>
+                  </div>
+                  <div class="expertise-card-right-content">
+                    <div class="expertise-card-circle"></div>
+                    <div class="expertise-number-text counter">20%</div>
+                  </div>
+                </div>
+                <div class="expertise-card-single last">
+                  <div class="expertise-card-text-wrap">
+                    <div class="expertise-card-name">Transformation</div>
+                    <div class="expertise-card-name color-change">
+                      Unallocated
+                    </div>
+                  </div>
+                  <div class="expertise-card-right-content">
+                    <div class="expertise-card-circle"></div>
+                    <div class="expertise-number-text counter">86%</div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+                    </div>
+                    <div class="expertise-typography">
+                        <div class="expertise-section-title-wrapper">
+                            <div class="subtitle-wrapper">
+                                <div class="subtitle-single">
+                                    <div class="subtitle">Expertise</div>
+                                </div>
+                            </div>
+                            <div class="section-title-description">
+                                <h2 data="section-title" class="section-title">
+                                    Enhance Business Efficiency with Expert Traditional IT Solutions
+                                </h2>
+                                <p class="section-description">
+                                    We specialize in providing traditional IT solutions designed to streamline business
+                                    operations and drive efficiency. Our expert team focuses on building and maintaining
+                                    a robust on-premise IT infrastructure that forms the backbone of your organization’s
+                                    digital environment. By offering dedicated resources, seamless integration with
+                                    legacy systems, and tailored configurations, we ensure optimal performance and
+                                    reliability. Whether it’s managing hardware, securing sensitive data, or optimizing
+                                    network infrastructure, our solutions give you full control while reducing
+                                    dependencies on third-party services. With our support, your business can scale
+                                    seamlessly, maintain continuity, and stay ahead in today’s rapidly evolving
+                                    technological landscape. Let us help you enhance your operational efficiency with
+                                    customized traditional IT solutions.
+                                </p>
+                            </div>
+                            <!-- <div class="section-button-wrapper">
+                <div data-wf--primary-button--variant="base" class="primary-button-wrapper">
+                  <a href="/about-us" data-w-id="735e5264-52a1-32dd-188f-6e779b16b2bc"
+                    class="primary-button-single w-inline-block">
+                    <div class="nav-link-button primary-button">
+                      <div class="button-clip">
+                        <div class="button-text">Learn About Us</div>
+                        <div class="button-text-hover">Learn About Us</div>
+                      </div>
+                      <div class="primary-button-icon-wrapper">
+                        <img loading="lazy"
+                          src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a149797338e007af71d2e98_Primary%20Button%20Icon.svg"
+                          alt="Button Icon" class="primary-button-icon in" /><img loading="lazy"
+                          src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a149797338e007af71d2e98_Primary%20Button%20Icon.svg"
+                          alt="Button Icon" class="primary-button-icon abs" />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div> -->
+                        </div>
+                        <div class="expertise-wrapper">
+                            <div class="expertise-single">
+                                <div class="expertise-icon-wrapper one">
+                                    <img src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a160da30fbb157d02cc462e_Expertise%20Icon1.svg"
+                                        loading="lazy" alt="Expertise Icon" class="expertise-icon" />
+                                </div>
+                                <div class="expertise-title-text">
+                                    <div class="expertise-title">On-Premise Backbone</div>
+                                    <div class="expertise-text">
+                                        Dedicated resources forming your organization's IT core.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-single">
+                                <div class="expertise-icon-wrapper two">
+                                    <img src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a160da3dae1e658a6eb042e_Expertise%20Icon2.svg"
+                                        loading="lazy" alt="Expertise Icon" class="expertise-icon" />
+                                </div>
+                                <div class="expertise-title-text">
+                                    <div class="expertise-title">Robust Infrastructure</div>
+                                    <div class="expertise-text">
+                                        Full control with dedicated on-premise IT solutions.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-single">
+                                <div class="expertise-icon-wrapper three">
+                                    <img src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a160da3b29a58f0cdc29212_Expertise%20Icon3.svg"
+                                        loading="lazy" alt="Expertise Icon" class="expertise-icon" />
+                                </div>
+                                <div class="expertise-title-text">
+                                    <div class="expertise-title">Legacy Support</div>
+                                    <div class="expertise-text">
+                                        Effortless integration with existing systems and applications.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-        <section class="section-resourcing">
+
+
+
+
+        <section class="section expertise">
+            <div class="container">
+                <div data="bottom-fade" class="expertise-content">
+                    <div class="expertise-typography">
+                        <div class="expertise-section-title-wrapper">
+                            <div class="subtitle-wrapper">
+                                <div class="subtitle-single">
+                                    <div class="subtitle">Expertise</div>
+                                </div>
+                            </div>
+                            <div class="section-title-description">
+                                <h2 data="section-title" class="section-title">
+                                    How Traditional IT Supports Modern Business
+                                </h2>
+                                <p class="section-description">
+                                    Traditional IT plays a crucial role in supporting modern businesses by providing a reliable and secure infrastructure. With on-premise solutions, businesses gain full control over their technology, allowing for tailored configurations that meet specific needs. Traditional IT ensures seamless integration with legacy systems, maintains data security, and provides high performance without dependency on external services. By optimizing resources and ensuring continuity, traditional IT supports smooth business operations in today’s digital world. 
+                                </p>
+                            </div>
+                            <!-- <div class="section-button-wrapper">
+                <div data-wf--primary-button--variant="base" class="primary-button-wrapper">
+                  <a href="/about-us" data-w-id="735e5264-52a1-32dd-188f-6e779b16b2bc"
+                    class="primary-button-single w-inline-block">
+                    <div class="nav-link-button primary-button">
+                      <div class="button-clip">
+                        <div class="button-text">Learn About Us</div>
+                        <div class="button-text-hover">Learn About Us</div>
+                      </div>
+                      <div class="primary-button-icon-wrapper">
+                        <img loading="lazy"
+                          src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a149797338e007af71d2e98_Primary%20Button%20Icon.svg"
+                          alt="Button Icon" class="primary-button-icon in" /><img loading="lazy"
+                          src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a149797338e007af71d2e98_Primary%20Button%20Icon.svg"
+                          alt="Button Icon" class="primary-button-icon abs" />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div> -->
+                        </div>
+                        <div class="expertise-wrapper">
+                            <div class="expertise-single">
+                                <div class="expertise-icon-wrapper one">
+                                    <img src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a160da30fbb157d02cc462e_Expertise%20Icon1.svg"
+                                        loading="lazy" alt="Expertise Icon" class="expertise-icon" />
+                                </div>
+                                <div class="expertise-title-text">
+                                    <div class="expertise-title">On-Premise Backbone</div>
+                                    <div class="expertise-text">
+                                        Reliable and secure infrastructure forming your organization's IT core.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-single">
+                                <div class="expertise-icon-wrapper two">
+                                    <img src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a160da3dae1e658a6eb042e_Expertise%20Icon2.svg"
+                                        loading="lazy" alt="Expertise Icon" class="expertise-icon" />
+                                </div>
+                                <div class="expertise-title-text">
+                                    <div class="expertise-title">Robust Infrastructure</div>
+                                    <div class="expertise-text">
+                                        Full control with tailored configurations meeting your specific needs.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="expertise-single">
+                                <div class="expertise-icon-wrapper three">
+                                    <img src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a160da3b29a58f0cdc29212_Expertise%20Icon3.svg"
+                                        loading="lazy" alt="Expertise Icon" class="expertise-icon" />
+                                </div>
+                                <div class="expertise-title-text">
+                                    <div class="expertise-title">Legacy Support</div>
+                                    <div class="expertise-text">
+                                        Seamless integration maintaining data security and high performance.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expertise-image-wrapper">
+                        <div data-poster-url="/17847367531823259455 (1).png"
+                            data-video-urls="/17847367531823259455 (1).png" data-autoplay="true" data-loop="true"
+                            data-wf-ignore="true" class="expertise-video w-background-video w-background-video-atom">
+                            <video id="ac6c70b7-d4d1-81b4-5447-60af76b748ff-video" autoplay="" loop="" style="
+                    background-image: url('/17847367531823259455\ \(1\).png');
+                  " muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+                                <source src="/17847367531823259455 (1).png" data-wf-ignore="true" />
+                                <source src="/17847367531823259455 (1).png" data-wf-ignore="true" />
+                            </video><noscript>
+                                <style>
+                                    [data-wf-bgvideo-fallback-img] {
+                                        display: none;
+                                    }
+
+                                    @media (prefers-reduced-motion: reduce) {
+                                        [data-wf-bgvideo-fallback-img] {
+                                            position: absolute;
+                                            z-index: -100;
+                                            display: inline-block;
+                                            height: 100%;
+                                            width: 100%;
+                                            object-fit: cover;
+                                        }
+                                    }
+                                </style><img data-wf-bgvideo-fallback-img="true" src="/17847367531823259455 (1).png"
+                                    alt="" />
+                            </noscript>
+                            <!-- <div aria-live="polite">
+                <button type="button" data-w-bg-video-control="true"
+                  aria-controls="ac6c70b7-d4d1-81b4-5447-60af76b748ff-video"
+                  class="w-backgroundvideo-backgroundvideoplaypausebutton play-pause-button w-background-video--control">
+                  <span class="play-state"><img
+                      src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a425c7061358fc9cade16b0_Pause%20Button.svg"
+                      loading="lazy" alt="Pause video" class="play-pause-button-icon" /></span><span hidden=""
+                    class="pause-state"><img loading="lazy" alt="Play video"
+                      src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a425c660203043f5e67c7b2_Play%20Button.svg"
+                      class="play-pause-button-icon" /></span>
+                </button>
+              </div> -->
+                        </div>
+                        <!-- <img
+              src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a1609df2c1d6c949c722ce1_Expertise%20Image%20Bottom%20Shape.webp"
+              loading="lazy" alt="Expertise Image Bottom Shape" class="expertise-image-bottom-shape" /><img
+              src="https://cdn.prod.website-files.com/6a146c0810c352652a34e2cc/6a160997c0e80d6d509b911b_Expertise%20Image%20Top%20Shape.webp"
+              loading="lazy" alt="Expertise Image Top Shape" class="expertise-image-top-shape" /> -->
+                        <!-- <div class="expertise-card">
+              <div class="expertise-card-title-wrapper">
+                <div class="expertise-card-title">
+                  Consultation is not only
+                  &quot;<strong>Advising</strong>&quot;
+                </div>
+              </div>
+              <div class="expertise-card-content">
+                <div class="expertise-card-single">
+                  <div class="expertise-card-text-wrap">
+                    <div class="expertise-card-name">Collaboration</div>
+                    <div class="expertise-card-name color-change">Spent</div>
+                  </div>
+                  <div class="expertise-card-right-content">
+                    <div class="expertise-card-circle"></div>
+                    <div class="expertise-number-text counter">74%</div>
+                  </div>
+                </div>
+                <div class="expertise-card-single">
+                  <div class="expertise-card-text-wrap">
+                    <div class="expertise-card-name">Guidance</div>
+                    <div class="expertise-card-name color-change">
+                      Available
+                    </div>
+                  </div>
+                  <div class="expertise-card-right-content">
+                    <div class="expertise-card-circle"></div>
+                    <div class="expertise-number-text counter">58%</div>
+                  </div>
+                </div>
+                <div class="expertise-card-single">
+                  <div class="expertise-card-text-wrap">
+                    <div class="expertise-card-name">Empowerment</div>
+                    <div class="expertise-card-name color-change">Spent</div>
+                  </div>
+                  <div class="expertise-card-right-content">
+                    <div class="expertise-card-circle"></div>
+                    <div class="expertise-number-text counter">20%</div>
+                  </div>
+                </div>
+                <div class="expertise-card-single last">
+                  <div class="expertise-card-text-wrap">
+                    <div class="expertise-card-name">Transformation</div>
+                    <div class="expertise-card-name color-change">
+                      Unallocated
+                    </div>
+                  </div>
+                  <div class="expertise-card-right-content">
+                    <div class="expertise-card-circle"></div>
+                    <div class="expertise-number-text counter">86%</div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- ============ CAPABILITY STRIP ============ -->
+        <section class="section-capstrip">
+            <div class="capstrip-container">
+                <ul class="capstrip-list">
+                    <li class="capstrip-item">
+                        <span class="capstrip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <ellipse cx="12" cy="5.5" rx="7.5" ry="3" />
+                                <path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13" />
+                                <path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3" />
+                            </svg>
+                        </span>
+                        <p class="capstrip-label">Centralized customer data across departments</p>
+                    </li>
+                    <li class="capstrip-item">
+                        <span class="capstrip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2.5" y="7" width="19" height="13" rx="2" />
+                                <path d="M8.5 7V5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2" />
+                                <path d="M2.5 12.5h19" />
+                                <path d="M10 12.5h4" />
+                            </svg>
+                        </span>
+                        <p class="capstrip-label">Automated workflows to enhance team efficiency</p>
+                    </li>
+                    <li class="capstrip-item">
+                        <span class="capstrip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3.5 3.5v17h17" />
+                                <path d="M7 15.5l4-4.5 3 3 5-6" />
+                                <path d="M15 8h4.5v4.5" />
+                            </svg>
+                        </span>
+                        <p class="capstrip-label">Scalable performance metrics to track success</p>
+                    </li>
+                    <li class="capstrip-item">
+                        <span class="capstrip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="6" cy="6" r="2.5" />
+                                <circle cx="18" cy="6" r="2.5" />
+                                <circle cx="6" cy="18" r="2.5" />
+                                <circle cx="18" cy="18" r="2.5" />
+                                <path d="M8.5 6h7M6 8.5v7M18 8.5v7M8.5 18h7" />
+                            </svg>
+                        </span>
+                        <p class="capstrip-label">Integration with SAP HANA for intelligent data mapping</p>
+                    </li>
+                    <li class="capstrip-item">
+                        <span class="capstrip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M2.5 8.5 12 4l9.5 4.5L12 13z" />
+                                <path d="M6.5 10.8v4.9c0 1.5 2.5 2.8 5.5 2.8s5.5-1.3 5.5-2.8v-4.9" />
+                                <path d="M21.5 8.5v5.5" />
+                            </svg>
+                        </span>
+                        <p class="capstrip-label">User training and system design for optimal performance</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <section id="the-ownership-moment" class="section_layout611 theme-color-dark-record">
+          <div class="padding-global">
+            <div class="container-large">
+              <div class="padding-section-large">
+                <div class="layout611_component">
+                  <div data-reveal-group="" class="margin-bottom-small">
+                    <div class="text-style-tagline text-color-brand">Why Choose Us</div>
+                  </div>
+                  <div class="layout611_content">
+                    <div data-reveal-group="" class="layout611_content-left">
+                      <div class="margin-bottom-small">
+                        <h2 class="heading-style-h2">At 2iResourcing</h2> 
+                      </div>
+                      <p max="50" class="text-style-muted">We don’t just fill roles—we deliver results. Since 2005, we’ve been a trusted SAP and IT staffing partner, recognized as Canada’s No.1 Tech Recruitment Agency. Our client-first approach, global delivery model, and pool of pre-screened experts ensure fast, reliable, and high-quality deployment for businesses worldwide.</p>
+                      <br />
+                      <p max="50" class="text-style-muted">As a certified minority and women-owned business enterprise (NMSDC and CAMSC certified), 2iResourcing brings not just technical excellence but also proven integrity and accountability. Our credentials, compliance frameworks, and security practices meet the highest industry standards. When you partner with us, you're working with an agency that has earned trust through years of delivering on its commitments.</p>
+                      
+                      <!-- <div class="margin-top-medium">
+                        <div class="margin-bottom-medium">
+                          <div>Get on the fast track to a fully staffed IT function.</div>
+                        </div>
+                        <div class="button-group">
+                          <div data-button="" data-wf--button--theme="primary" class="button"><span
+                              class="button_inner"><span class="button_default"><span
+                                  class="button_default-bg"></span><span data-wf--button-size--variant="base"
+                                  class="button_text button_default-text">
+                                  <div class="text-size-regular">Consult Now</div>
+                                  <div class="button_icon hide-if-empty"></div>
+                                </span></span><span aria-hidden="true" class="button_hover"><span
+                                  class="button_hover-bg"></span><span data-wf--button-size--variant="base"
+                                  class="button_text button_hover-text">
+                                  <div class="text-size-regular">Consult Now</div>
+                                  <div class="button_icon hide-if-empty"></div>
+                                </span></span></span>
+                            <div class="clickable_wrap"><a aria-label="Consult Now"
+                                href="https://2iresourcing.ca/contact-us/" class="clickable_link w-inline-block"></a></div>
+                          </div>
+                          <div data-button="" data-wf--button--theme="text" class="button"><span
+                              class="button_inner"><span
+                                class="button_default w-variant-bd2be443-4af6-fb96-1082-12a5210c260a"><span
+                                  class="button_default-bg w-variant-bd2be443-4af6-fb96-1082-12a5210c260a"></span><span
+                                  data-wf--button-size--variant="base" class="button_text button_default-text">
+                                  <div class="text-size-regular">See the roles we place</div>
+                                  <div class="button_icon hide-if-empty"></div>
+                                </span></span><span aria-hidden="true" class="button_hover"><span
+                                  class="button_hover-bg"></span><span data-wf--button-size--variant="base"
+                                  class="button_text button_hover-text">
+                                  <div class="text-size-regular">See the roles we place</div>
+                                  <div class="button_icon hide-if-empty"></div>
+                                </span></span></span>
+                            <div class="clickable_wrap"><a target="_blank" aria-label="See the roles we place"
+                                href="#get-early-access"
+                                class="clickable_link w-inline-block"></a></div>
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
+                    <div class="layout611_list">
+                      <div class="layout611_timeline-progress-wrapper">
+                        <div class="layout611_timeline-progress-line"></div>
+                        <div class="layout611_timeline-progress-mask"></div>
+                      </div>
+                      <div class="layout611_item">
+                        <div class="layout611_item-number-wrapper">
+                          <div class="text-size-large text-style-mono">01</div>
+                        </div>
+                        <div class="layout611_item-content">
+                          <div class="margin-bottom-small">
+                            <h3 class="heading-style-h5 text-style-body">Global Reach, Local Expertise</h3>
+                          </div>
+                          <p class="text-style-muted">Certified by NMSDC and CAMSC, we support clients across the US, Canada, Europe, and India with 24/7 delivery models.</p>
+                        </div>
+                        <div class="layout611_timeline-item-progress-wrapper">
+                          <div class="layout611_timeline-item-progress-line"></div>
+                        </div>
+                      </div>
+                      <div class="layout611_item">
+                        <div class="layout611_item-number-wrapper">
+                          <div class="text-size-large text-style-mono">02</div>
+                        </div>
+                        <div class="layout611_item-content">
+                          <div class="margin-bottom-small">
+                            <h3 class="heading-style-h5 text-style-body">Top-Tier Talent, Ready to Deploy</h3>
+                          </div>
+                          <p class="text-style-muted">Our consultants are pre-vetted professionals with deep expertise in SAP, cloud, AI, data, and more.</p>
+                        </div>
+                        <div class="layout611_timeline-item-progress-wrapper">
+                          <div class="layout611_timeline-item-progress-line"></div>
+                        </div>
+                      </div>
+                      <div class="layout611_item">
+                        <div class="layout611_item-number-wrapper">
+                          <div class="text-size-large text-style-mono">03</div>
+                        </div>
+                        <div class="layout611_item-content">
+                          <div class="margin-bottom-small">
+                            <h3 class="heading-style-h5 text-style-body">Real Partnership, Real Results</h3>
+                          </div>
+                          <p class="text-style-muted">We align with your business goals to deliver outcomes, not just placements, but value, impact, and growth.</p>
+                        </div>
+                        <div class="layout611_timeline-item-progress-wrapper">
+                          <div class="layout611_timeline-item-progress-line"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hide w-embed">
+                      <style>
+                        .layout611_item:last-child .layout611_timeline-item-progress-wrapper {
+                          display: none;
+                        }
+                      </style>
+                    </div>
+                    <div class="hide w-embed w-script">
+                      <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                          gsap.registerPlugin(ScrollTrigger);
+
+                          const progressLineEl = document.querySelector(".layout611_timeline-progress-line");
+                          const progressLineStyles = getComputedStyle(progressLineEl);
+                          const hoverBg = progressLineStyles.backgroundColor;
+                          const hoverText = progressLineStyles.color;
+
+                          const items = document.querySelectorAll(".layout611_item");
+
+                          // Single scrubbed timeline, driven by scroll through .layout611_list.
+                          // Order: main progress line fills first, then each item animates in
+                          // sequence — item 1's number, content opacity, and line finish before
+                          // item 2 starts, etc.
+                          const tl = gsap.timeline({
+                            scrollTrigger: {
+                              trigger: ".layout611_list",
+                              start: "top 70%",
+                              end: "bottom 70%",
+                              scrub: true
+                            },
+                            defaults: { ease: "none" }
+                          });
+
+                          // 1. Main timeline progress line — from 0% up to its natural (CSS-set) height
+                          tl.from(progressLineEl, { height: "0%", duration: 1 });
+
+                          // 2. Each item, one after another
+                          items.forEach((item) => {
+                            const numberWrapper = item.querySelector(".layout611_item-number-wrapper");
+                            const itemContent = item.querySelector(".layout611_item-content");
+                            const itemProgressLine = item.querySelector(".layout611_timeline-item-progress-line");
+
+                            tl.to(numberWrapper, {
+                              backgroundColor: hoverBg,
+                              color: hoverText,
+                              duration: 1
+                            })
+                              .from(itemContent, { opacity: 0.3, duration: 1 }, "<")
+                              .from(itemProgressLine, { height: "0%", duration: 1 });
+                          });
+                        });
+                      </script>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+
+        <!-- ============ TESTIMONIALS ============ -->
+        <section class="section-voices" id="testimonials">
+            <div class="voices-container">
+                <div class="voices-head">
+                    <h2 class="section-title voices-title">Testimonials</h2>
+                </div>
+                <div class="voices-grid">
+                    <figure class="voices-card">
+                        <span class="voices-mark" aria-hidden="true">
+                            <svg viewBox="0 0 32 24" fill="currentColor">
+                                <path
+                                    d="M0 24V13.4C0 6.3 4 1.8 11.6 0l1.5 3.7C8.6 5.3 6.4 7.9 6.4 11.5h5.5V24zm20.1 0V13.4c0-7.1 4-11.6 11.6-13.4L33 3.7c-4.5 1.6-6.7 4.2-6.7 7.8H32V24z" />
+                            </svg>
+                        </span>
+                        <blockquote class="voices-quote">
+                            2iresourcing helped streamline our customer relationship management system, boosting our
+                            sales and client retention. The team was incredibly knowledgeable and responsive. We
+                            couldn't be happier with the results!
+                        </blockquote>
+                        <figcaption class="voices-author">
+                            <span class="voices-name">Sarah M.</span>
+                            <span class="voices-role">Business Owner</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="voices-card">
+                        <span class="voices-mark" aria-hidden="true">
+                            <svg viewBox="0 0 32 24" fill="currentColor">
+                                <path
+                                    d="M0 24V13.4C0 6.3 4 1.8 11.6 0l1.5 3.7C8.6 5.3 6.4 7.9 6.4 11.5h5.5V24zm20.1 0V13.4c0-7.1 4-11.6 11.6-13.4L33 3.7c-4.5 1.6-6.7 4.2-6.7 7.8H32V24z" />
+                            </svg>
+                        </span>
+                        <blockquote class="voices-quote">
+                            The Business Intelligence solutions provided by 2iresourcing transformed our data into
+                            actionable insights. The platform is intuitive, and the customer support team has been
+                            fantastic. Highly recommend!
+                        </blockquote>
+                        <figcaption class="voices-author">
+                            <span class="voices-name">John T.</span>
+                            <span class="voices-role">IT Manager</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="voices-card">
+                        <span class="voices-mark" aria-hidden="true">
+                            <svg viewBox="0 0 32 24" fill="currentColor">
+                                <path
+                                    d="M0 24V13.4C0 6.3 4 1.8 11.6 0l1.5 3.7C8.6 5.3 6.4 7.9 6.4 11.5h5.5V24zm20.1 0V13.4c0-7.1 4-11.6 11.6-13.4L33 3.7c-4.5 1.6-6.7 4.2-6.7 7.8H32V24z" />
+                            </svg>
+                        </span>
+                        <blockquote class="voices-quote">
+                            With 2iresourcing's CRM solutions, we could engage customers more effectively and
+                            personalize our campaigns. Our engagement rates have significantly increased, and we've seen
+                            a real impact on revenue.
+                        </blockquote>
+                        <figcaption class="voices-author">
+                            <span class="voices-name">Priya D.</span>
+                            <span class="voices-role">Marketing Director</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="voices-card">
+                        <span class="voices-mark" aria-hidden="true">
+                            <svg viewBox="0 0 32 24" fill="currentColor">
+                                <path
+                                    d="M0 24V13.4C0 6.3 4 1.8 11.6 0l1.5 3.7C8.6 5.3 6.4 7.9 6.4 11.5h5.5V24zm20.1 0V13.4c0-7.1 4-11.6 11.6-13.4L33 3.7c-4.5 1.6-6.7 4.2-6.7 7.8H32V24z" />
+                            </svg>
+                        </span>
+                        <blockquote class="voices-quote">
+                            2iresourcing's cloud solutions have been a game-changer for our operations. They helped
+                            automate our processes and reduce overhead costs. I highly appreciate their attention to
+                            detail and timely support.
+                        </blockquote>
+                        <figcaption class="voices-author">
+                            <span class="voices-name">David K.</span>
+                            <span class="voices-role">Operations Executive</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="voices-card">
+                        <span class="voices-mark" aria-hidden="true">
+                            <svg viewBox="0 0 32 24" fill="currentColor">
+                                <path
+                                    d="M0 24V13.4C0 6.3 4 1.8 11.6 0l1.5 3.7C8.6 5.3 6.4 7.9 6.4 11.5h5.5V24zm20.1 0V13.4c0-7.1 4-11.6 11.6-13.4L33 3.7c-4.5 1.6-6.7 4.2-6.7 7.8H32V24z" />
+                            </svg>
+                        </span>
+                        <blockquote class="voices-quote">
+                            We partnered with 2iresourcing to optimize our patient data management and compliance
+                            efforts. Their healthcare solutions were easy to integrate and have made our team more
+                            efficient. Excellent service!
+                        </blockquote>
+                        <figcaption class="voices-author">
+                            <span class="voices-name">Jessica L.</span>
+                            <span class="voices-role">Healthcare Administrator</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="voices-card">
+                        <span class="voices-mark" aria-hidden="true">
+                            <svg viewBox="0 0 32 24" fill="currentColor">
+                                <path
+                                    d="M0 24V13.4C0 6.3 4 1.8 11.6 0l1.5 3.7C8.6 5.3 6.4 7.9 6.4 11.5h5.5V24zm20.1 0V13.4c0-7.1 4-11.6 11.6-13.4L33 3.7c-4.5 1.6-6.7 4.2-6.7 7.8H32V24z" />
+                            </svg>
+                        </span>
+                        <blockquote class="voices-quote">
+                            As a financial institution, data security and reporting efficiency are critical.
+                            2iresourcing's services have not only streamlined our reporting but also improved our risk
+                            management processes. Their expertise is second to none.
+                        </blockquote>
+                        <figcaption class="voices-author">
+                            <span class="voices-name">Michael S.</span>
+                            <span class="voices-role">CFO</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Same scroll-reveal contract the resourcing cards use: reveal on entry,
+            // staggered by position, then stop observing.
+            document.addEventListener('DOMContentLoaded', () => {
+                const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                // Pointer-tracked drift on the two section images. The CSS owns the
+                // resting scale and the hover zoom; this only feeds it an offset.
+                if (!reduced) {
+                    document.querySelectorAll('[data-parallax]').forEach(frame => {
+                        const set = (x, y) => {
+                            frame.style.setProperty('--px', x.toFixed(2) + 'px');
+                            frame.style.setProperty('--py', y.toFixed(2) + 'px');
+                        };
+                        frame.addEventListener('pointermove', e => {
+                            if (e.pointerType !== 'mouse') return;
+                            const r = frame.getBoundingClientRect();
+                            set(((e.clientX - r.left) / r.width - 0.5) * -16,
+                                ((e.clientY - r.top) / r.height - 0.5) * -16);
+                        });
+                        frame.addEventListener('pointerleave', () => set(0, 0));
+                    });
+                }
+
+                const revealables = document.querySelectorAll(
+                    '.capstrip-item, .voices-card, .titech-figure, .foundation-figure');
+                if (!revealables.length) return;
+
+                if (!('IntersectionObserver' in window) || reduced) {
+                    revealables.forEach(el => el.classList.add('is-revealed'));
+                    return;
+                }
+
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) return;
+                        const group = entry.target.parentElement;
+                        const index = Array.prototype.indexOf.call(group.children, entry.target);
+                        setTimeout(() => entry.target.classList.add('is-revealed'), index * 90);
+                        obs.unobserve(entry.target);
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+                revealables.forEach(el => observer.observe(el));
+            });
+        </script>
+
+
+
+
+
+
+
+ <!-- ============ BENEFITS OF A STRONG TRADITIONAL IT FOUNDATION ============ -->
+        <section class="section-foundation" id="traditional-it-foundation">
+            <div class="foundation-container">
+                <div class="foundation-split">
+                    <div class="foundation-figure" data-parallax>
+                        <img src="Optimize-Your-Business-with-Traditional-IT-Solutions-Expert-Support.jpg"
+                            loading="lazy" class="foundation-image"
+                            alt="Technicians servicing hardware at an in-house IT workbench" />
+                    </div>
+                    <div class="foundation-content">
+                        <div class="subtitle-wrapper foundation-subtitle-wrapper">
+                            <div class="subtitle-single foundation-subtitle-single">
+                                <div class="subtitle foundation-subtitle">Why It Holds</div>
+                            </div>
+                        </div>
+                        <h2 class="foundation-title">Benefits of a Strong Traditional IT Foundation</h2>
+                        <div class="foundation-body">
+                            <p class="foundation-text is-lead">
+                                A strong traditional IT foundation provides businesses with the stability and control
+                                needed to manage operations efficiently. With on-premise systems, organizations have
+                                direct oversight of their infrastructure, ensuring that hardware, software, and security
+                                measures align with specific business needs.
+                            </p>
+                            <p class="foundation-text">
+                                This control allows for tailored configurations, optimized performance, and seamless
+                                integration with legacy systems. A robust IT foundation also enhances security,
+                                minimizing the risk of data breaches and ensuring compliance with industry regulations.
+                            </p>
+                            <p class="foundation-text">
+                                Moreover, the reliability and scalability of traditional IT support uninterrupted
+                                business operations, fostering long-term growth and ensuring that businesses are
+                                well-equipped to adapt to evolving demands.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+         <section class="section-resourcing">
             <div class="resourcing-container">
                 <div class="resourcing-inner-container">
                     <div class="resourcing-content">
@@ -2680,11 +3339,6 @@
                 });
             </script>
         </section>
-
-
-
-
-
 
 
 
